@@ -1,0 +1,101 @@
+
+.webix_toolbar.main-toolbar {
+    background-color: #393939;
+    opacity: 0.9;
+}
+
+.webix_view.webix_control.webix_el_tabbar.customize-tabbar {
+    background-color: transparent;
+}
+.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected {
+    color: #F18B28;
+}
+.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected,
+.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected:focus{
+    background-color: #393939;
+    opacity: 0.9;
+    box-shadow: #F18B28 0px -3px inset;
+    padding-bottom: 0px;
+}
+.customize-tabbar .webix_all_tabs .webix_item_tab {
+    background-color: #393939;
+    opacity: 0.9;
+    color: white;
+    font-size: 22px
+}
+.customize-multiview.webix_view.webix_multiview {
+    background-color: transparent;
+}
+.details-block {
+    background-color: #F4F8FB;
+    opacity: 0.95
+}
+.img-container {
+    text-align: center;
+}
+.details-block img {
+    max-width:100%;
+    height: auto;
+    max-height: 300px;
+}
+.header-template {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+.accent-btn.webix_el_button.webix_control button{
+    background: #F18B28;
+    color: #ffffff;
+    font-size: 25px;
+}
+.accent-btn.webix_el_button.webix_control button:hover,
+.accent-btn.webix_el_button.webix_control:focus{
+    background: #ff8004;
+    color: #ffffff;
+    font-size: 25px;
+}
+.secondary-btn.webix_el_button.webix_control button{
+    background: #F4F5F9;
+    color: #3c3c3c;
+}
+.muscules-block {
+    padding: 20px;
+    text-align: center;
+}
+.muscules-block .details-value {
+    font-size: 27px;
+    font-weight: 500;
+}
+.estimated-time-block {
+    padding: 20px 0px;
+    text-align: right;
+    font-size: 20px;
+}
+.transparent {
+    background-color: transparent
+}
+.layout {
+    background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-position: center;
+}
+.webix_list.menu-list .webix_list_item{
+    border: none;
+}
+
+.custom-switch .webix_switch_box.webix_switch_on{
+    background: #ff8004;
+}
+
+.custom-multilist .webix_multilist .wxi-checkbox-marked {
+    color: #ff8004
+}
+.webix_slider_alt .webix_slider_box .webix_slider_left {
+    background: #ff8004;
+}
+.webix_view.webix_form.opacity-form {
+    opacity: 0.96
+}
+
