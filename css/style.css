@@ -1,3 +1,22 @@
+.webix_list.menu-list .webix_list_item {
+    border: none;
+    line-height: 60px;
+}
+
+.user-info-block {
+    text-align: center;
+}
+
+.user-icon {
+    height: 150px;
+}
+.user-name {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+}
+
+/* customize page*/
 
 .webix_toolbar.main-toolbar {
     background-color: #393939;
@@ -7,37 +26,45 @@
 .webix_view.webix_control.webix_el_tabbar.customize-tabbar {
     background-color: transparent;
 }
+
 .customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected {
     color: #F18B28;
 }
+
 .customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected,
-.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected:focus{
+.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected:focus {
     background-color: #393939;
     opacity: 0.9;
     box-shadow: #F18B28 0px -3px inset;
     padding-bottom: 0px;
 }
+
 .customize-tabbar .webix_all_tabs .webix_item_tab {
     background-color: #393939;
     opacity: 0.9;
     color: white;
     font-size: 22px
 }
+
 .customize-multiview.webix_view.webix_multiview {
     background-color: transparent;
 }
+
 .details-block {
     background-color: #F4F8FB;
     opacity: 0.95
 }
+
 .img-container {
     text-align: center;
 }
+
 .details-block img {
-    max-width:100%;
+    max-width: 100%;
     height: auto;
     max-height: 300px;
 }
+
 .header-template {
     text-transform: uppercase;
     color: #fff;
@@ -45,57 +72,360 @@
     font-weight: 500;
     text-align: center;
 }
-.accent-btn.webix_el_button.webix_control button{
+
+.accent-btn.webix_el_button.webix_control button {
     background: #F18B28;
     color: #ffffff;
     font-size: 25px;
 }
+
 .accent-btn.webix_el_button.webix_control button:hover,
-.accent-btn.webix_el_button.webix_control:focus{
+.accent-btn.webix_el_button.webix_control:focus {
     background: #ff8004;
     color: #ffffff;
     font-size: 25px;
 }
-.secondary-btn.webix_el_button.webix_control button{
+
+.secondary-btn.webix_el_button.webix_control button {
     background: #F4F5F9;
     color: #3c3c3c;
 }
+
 .muscules-block {
     padding: 20px;
     text-align: center;
 }
+
 .muscules-block .details-value {
     font-size: 27px;
     font-weight: 500;
 }
+
 .estimated-time-block {
     padding: 20px 0px;
     text-align: right;
     font-size: 20px;
 }
+
 .transparent {
     background-color: transparent
 }
+
 .layout {
     background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
     background-size: cover;
     background-position: center;
 }
-.webix_list.menu-list .webix_list_item{
-    border: none;
-}
 
-.custom-switch .webix_switch_box.webix_switch_on{
+
+.custom-switch .webix_switch_box.webix_switch_on {
     background: #ff8004;
 }
 
 .custom-multilist .webix_multilist .wxi-checkbox-marked {
     color: #ff8004
 }
+
 .webix_slider_alt .webix_slider_box .webix_slider_left {
     background: #ff8004;
 }
+
 .webix_view.webix_form.opacity-form {
     opacity: 0.96
 }
 
+/* customize page*/
+
+/* startWorkout page*/
+.webix_toolbar.main-toolbar .webix_scroll_cont {
+    background-color: #393939;
+    opacity: 0.9;
+}
+
+.details-block {
+    background-color: #F4F8FB;
+    opacity: 0.95
+}
+
+.img-container {
+    text-align: center;
+}
+
+.details-block img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+}
+
+.header-template {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/*.accent-btn .webix_button{
+    background: #F18B28;
+    color: #ffffff;
+    font-size: 25px;
+    border-radius: 50px;
+}
+.accent-btn .webix_button:hover,
+.accent-btn .webix_button:focus{
+    background: #ff8004;
+    color: #ffffff;
+    font-size: 25px;
+    border-radius: 50px;
+}*/
+.secondary-btn .webix_button {
+    background: #F4F5F9;
+    color: #3c3c3c;
+    border-radius: 50px;
+}
+
+.customize-info {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+.muscules-block {
+    padding: 20px;
+    text-align: center;
+}
+
+.muscules-block .details-value {
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.estimated-time-block {
+    padding: 20px 0px;
+    text-align: right;
+    font-size: 20px;
+}
+
+.transparent {
+    background-color: transparent
+}
+
+.layout {
+    background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-position: center;
+}
+
+/* startWorkout page*/
+
+/* exercises page*/
+.chat-icon .webix_icon_button .webix_icon {
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    color: #F18B28;
+}
+
+.chat-icon .webix_icon_button .webix_icon:hover {
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    color: #F18B28;
+}
+
+.block {
+    width: 100%;
+    padding: 20px 0px;
+    background-color: #EFEFEF;
+    border-radius: 3px;
+}
+
+.block-completed {
+    border-left: 4px solid #039e037d;
+}
+
+.block-todo {
+    border-left: 4px solid #80808047;
+}
+
+.block-in_progress {
+    border-left: 4px solid #F18B28;
+}
+
+.block-cancelled {
+    border-left: 4px solid #ff0000bd;
+}
+
+.state {
+    width: 70px;
+    text-align: center;
+    color: #313131;
+}
+
+.state-completed {
+    background-color: #039e037d;
+}
+
+.state-todo {
+    background-color: #80808047;
+}
+
+.state-in_progress {
+    background-color: #F18B28;
+}
+
+.state-cancelled {
+    background-color: #ff0000bd;
+}
+
+.muscules-block {
+    font-size: 18px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.state {
+    float: right;
+    line-height: 25px;
+    padding: 0px 10px;
+    margin-right: 20px;
+    border-radius: 3px;
+}
+
+.webix_list.exercises-list .webix_list_item {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.webix_dtable.sets-datatable .webix_dt_editor input, .webix_view .webix_dt_editor select {
+    border-color: #F18B28;
+    border-radius: 2px;
+}
+
+.webix_cell {
+    text-align: center;
+}
+
+.editable-cell .webix_cell {
+    background: white;
+    border: 1px solid grey;
+    border-radius: 2px;
+}
+
+.webix_dtable .webix_ss_body .webix_column.editable-cell > div {
+    border: 1px solid #80808036;
+}
+
+.webix_dtable.sets-datatable .webix_ss_header td.webix_last_row {
+    border-bottom: 1px solid #F18B28;
+}
+
+.webix_dtable.sets-datatable {
+    background: #eff0f452;
+}
+
+.info-icon .webix_icon_button .webix_icon {
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    color: #F18B28;
+}
+
+.exercise-name {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.multiline {
+    line-height: 20px !important;
+}
+
+.customAccordion {
+    background-color: #393939;
+    opacity: 0.98;
+}
+
+.webix_toolbar.main-toolbar {
+    background-color: #393939;
+    opacity: 0.9;
+}
+
+.webix_view.webix_control.webix_el_tabbar.customize-tabbar {
+    background-color: transparent;
+}
+
+.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected {
+    color: #F18B28;
+}
+
+.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected,
+.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected:focus {
+    background-color: #393939;
+    opacity: 0.9;
+    box-shadow: #F18B28 0px -3px inset;
+    padding-bottom: 0px;
+}
+
+.customize-tabbar .webix_all_tabs .webix_item_tab {
+    background-color: #393939;
+    opacity: 0.9;
+    color: white;
+    font-size: 22px
+}
+
+.customize-multiview.webix_view.webix_multiview {
+    background-color: transparent;
+}
+
+.content-toolbar .accent-btn .webix_button {
+    font-size: 17px;
+}
+
+.content-toolbar .accent-btn .webix_button .webix_icon_btn {
+    font-size: 22px;
+    color: white;
+}
+
+.accent-btn .webix_button {
+    background: #F18B28;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.accent-btn .webix_button:hover,
+.accent-btn .webix_button:focus {
+    background: #ff8004;
+    color: #ffffff;
+}
+
+.secondary-btn .webix_button {
+    background: #F4F5F9;
+    color: #3c3c3c;
+}
+
+.transparent {
+    background-color: transparent
+}
+
+.layout {
+    background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-position: center;
+}
+
+.webix_list.menu-list .webix_list_item {
+    border: none;
+}
+
+.customAccordion .webix_accordionitem.collapsed .webix_accordionitem_header {
+    color: #F18B28;
+}
+
+.customAccordion .webix_accordionitem.collapsed .webix_accordionitem_header .webix_accordionitem_button {
+    color: #F18B28;
+}
+
+/* exercises page*/
