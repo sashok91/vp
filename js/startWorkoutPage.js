@@ -8,19 +8,9 @@ pages.startWorkout = pages.startWorkout || {};
         id: 'pages.startWorkout',
         type: "clean",
         css: 'transparent',
+        margin: 20,
+        paddingY: 30,
         rows: [
-            {
-                height: 20
-            },
-            {
-                template: '<div> Today\'s Workout Details',
-                css: 'header-template transparent',
-                borderless: true,
-                autoheight: true
-            },
-            {
-                height: 20
-            },
             {
                 cols: [
                     {},
@@ -28,17 +18,20 @@ pages.startWorkout = pages.startWorkout || {};
                         id: 'template',
                         template: function (obj) {
                             return '<div class="details-block">' +
-                                '<div class="muscules-block">' +
-                                '<span class="details-value"> Arms, Biceps, Neck </span>' +
-                                '</div>' +
-                                '<div class="img-container"><img src="https://files.adme.ru/files/news/part_136/1363465/17446815-56-1474453775-650-dc42c8a60f-1492250575.jpg"/></div>' +
-                                '<div class="estimated-time-block">' +
-                                '<span class="estimated-time-label"> Estimated time: </span>' +
-                                '<span class="estimated-time-value">47 min</span>' +
-                                '</div>' +
-                                '</div>';
+                                        '<div class="header"> Today\'s Workout Details</div>' +
+                                        '<div class="muscules-block">' +
+                                            '<span class="details-value"> Arms, Biceps, Neck </span>' +
+                                        '</div>' +
+                                        '<div class="img-container">' +
+                                            '<object type="image/svg+xml" data="images/MG_Men_edit.svg" id="muscules-object" class="svg-object muscules-svg"></object>' +
+                                        '</div>' +
+                                        '<div class="estimated-time-block">' +
+                                            '<span class="estimated-time-label"> Estimated time: </span>' +
+                                            '<span class="estimated-time-value">47 min</span>' +
+                                        '</div>' +
+                                    '</div>';
                         },
-                        css: 'details-block ',
+                        css: 'details-template',
                         gravity: 10,
                         borderless: true,
                         autoheight: true,
@@ -47,32 +40,11 @@ pages.startWorkout = pages.startWorkout || {};
                     {},
                 ]
             },
-            {
-                height: 50
-            },
-            {
-                cols: [
-                    {
-                        gravity: 1
-                    },
-                    {
-                        view: 'button',
-                        css: 'accent-btn',
-                        gravity: 3,
-                        value: "Start Workout",
-                        height: 70
-                    },
-                    {
-                        gravity: 1
-                    }
-                ]
-            },
-            {minHeight: 20},
+            {},
             {
                 template: function () {
                     return '<div>' +
-                        'OR' + '<br>' +
-                        'customize today\'s workout with new restrictions'
+                        'You can customize today\'s workout before starting' +
                     '</div>';
                 },
                 css: 'customize-info transparent',
@@ -80,27 +52,22 @@ pages.startWorkout = pages.startWorkout || {};
                 autoheight: true
             },
             {
-                height: 20
-            },
-            {
+                margin: 20,
+                paddingX: 20,
                 cols: [
-                    {
-                        gravity: 1
-                    },
                     {
                         view: 'button',
                         css: 'secondary-btn',
-                        gravity: 3,
-                        value: "Customize",
+                        value: "Customize Workout",
                         height: 70
                     },
                     {
-                        gravity: 1
-                    }
+                        view: 'button',
+                        css: 'accent-btn',
+                        value: "Start Workout",
+                        height: 70
+                    },
                 ]
-            },
-            {
-                height: 50
             }
         ]
     };

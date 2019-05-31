@@ -1,3 +1,8 @@
+.webix_toolbar.main-toolbar {
+    background-color: #393939;
+    opacity: 0.95;
+}
+/* menu*/
 .webix_list.menu-list .webix_list_item {
     border: none;
     line-height: 60px;
@@ -15,13 +20,11 @@
     font-weight: 500;
     padding: 10px;
 }
+/* menu */
 
 /* customize page*/
 
-.webix_toolbar.main-toolbar {
-    background-color: #393939;
-    opacity: 0.9;
-}
+
 
 .webix_view.webix_control.webix_el_tabbar.customize-tabbar {
     background-color: transparent;
@@ -50,73 +53,10 @@
     background-color: transparent;
 }
 
-.details-block {
-    background-color: #F4F8FB;
-    opacity: 0.95
-}
-
-.img-container {
-    text-align: center;
-}
-
-.details-block img {
-    max-width: 100%;
-    height: auto;
-    max-height: 300px;
-}
-
-.header-template {
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 25px;
-    font-weight: 500;
-    text-align: center;
-}
-
-.accent-btn.webix_el_button.webix_control button {
-    background: #F18B28;
-    color: #ffffff;
-    font-size: 25px;
-}
-
-.accent-btn.webix_el_button.webix_control button:hover,
-.accent-btn.webix_el_button.webix_control:focus {
-    background: #ff8004;
-    color: #ffffff;
-    font-size: 25px;
-}
-
 .secondary-btn.webix_el_button.webix_control button {
     background: #F4F5F9;
     color: #3c3c3c;
 }
-
-.muscules-block {
-    padding: 20px;
-    text-align: center;
-}
-
-.muscules-block .details-value {
-    font-size: 27px;
-    font-weight: 500;
-}
-
-.estimated-time-block {
-    padding: 20px 0px;
-    text-align: right;
-    font-size: 20px;
-}
-
-.transparent {
-    background-color: transparent
-}
-
-.layout {
-    background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
-    background-size: cover;
-    background-position: center;
-}
-
 
 .custom-switch .webix_switch_box.webix_switch_on {
     background: #ff8004;
@@ -137,13 +77,13 @@
 /* customize page*/
 
 /* startWorkout page*/
-.webix_toolbar.main-toolbar .webix_scroll_cont {
-    background-color: #393939;
-    opacity: 0.9;
-}
 
+.details-template .webix_template{
+    padding: 0;
+    border-radius: 2px;
+}
 .details-block {
-    background-color: #F4F8FB;
+    background-color: #FFF;
     opacity: 0.95
 }
 
@@ -151,18 +91,14 @@
     text-align: center;
 }
 
-.details-block img {
-    max-width: 100%;
-    height: auto;
-    max-height: 300px;
-}
-
-.header-template {
+.details-block .header {
     text-transform: uppercase;
     color: #fff;
     font-size: 25px;
     font-weight: 500;
     text-align: center;
+    padding: 20px 10px;
+    background-color: #393939;
 }
 
 /*.accent-btn .webix_button{
@@ -178,11 +114,7 @@
     font-size: 25px;
     border-radius: 50px;
 }*/
-.secondary-btn .webix_button {
-    background: #F4F5F9;
-    color: #3c3c3c;
-    border-radius: 50px;
-}
+
 
 .customize-info {
     font-size: 20px;
@@ -201,7 +133,7 @@
 }
 
 .estimated-time-block {
-    padding: 20px 0px;
+    padding: 20px 10px;
     text-align: right;
     font-size: 20px;
 }
@@ -278,7 +210,7 @@
     background-color: #ff0000bd;
 }
 
-.muscules-block {
+.exercises-list .muscules-block {
     font-size: 18px;
     padding-left: 20px;
     text-align: left;
@@ -348,11 +280,6 @@
     opacity: 0.98;
 }
 
-.webix_toolbar.main-toolbar {
-    background-color: #393939;
-    opacity: 0.9;
-}
-
 .webix_view.webix_control.webix_el_tabbar.customize-tabbar {
     background-color: transparent;
 }
@@ -392,7 +319,7 @@
 .accent-btn .webix_button {
     background: #F18B28;
     color: #ffffff;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .accent-btn .webix_button:hover,
@@ -403,7 +330,8 @@
 
 .secondary-btn .webix_button {
     background: #F4F5F9;
-    color: #3c3c3c;
+    color: #475466;
+    font-size: 22px;
 }
 
 .transparent {
