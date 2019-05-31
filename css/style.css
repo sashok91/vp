@@ -89,6 +89,13 @@
 
 .img-container {
     text-align: center;
+    max-height: 50%;
+}
+
+.details-block muscules-svg {
+    max-width: 50%;
+    height: auto;
+    max-height: 50%;
 }
 
 .details-block .header {

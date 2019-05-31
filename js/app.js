@@ -75,20 +75,26 @@ webix.ready(function () {
         rows: [
             toolbar,
             {
-                view: 'multiview',
-                id: 'mainMultiview',
+                view: 'scrollview',
                 type: 'clean',
-                borderless: true,
-                css: 'customize-multiview',
-                fitBiggest: true,
-                animate: false,
-                keepViews: true,
-                cells: [
-                    pages.startWorkout.layout,
-                    pages.customize.layout,
-                    pages.exercises.layout
-                ]
+                css: 'transparent',
+                body: {
+                    view: 'multiview',
+                    id: 'mainMultiview',
+                    type: 'clean',
+                    borderless: true,
+                    css: 'customize-multiview',
+                    fitBiggest: true,
+                    animate: false,
+                    keepViews: true,
+                    cells: [
+                        pages.startWorkout.layout,
+                        pages.customize.layout,
+                        pages.exercises.layout
+                    ]
+                },
             },
+
         ]
     });
     webix.ui(sidemenu);

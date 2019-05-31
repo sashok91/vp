@@ -12,8 +12,8 @@ pages.startWorkout = pages.startWorkout || {};
         paddingY: 30,
         rows: [
             {
+                paddingX: 50,
                 cols: [
-                    {},
                     {
                         id: 'template',
                         template: function (obj) {
@@ -23,7 +23,7 @@ pages.startWorkout = pages.startWorkout || {};
                                             '<span class="details-value"> Arms, Biceps, Neck </span>' +
                                         '</div>' +
                                         '<div class="img-container">' +
-                                            '<object type="image/svg+xml" data="images/MG_Men_edit.svg" id="muscules-object" class="svg-object muscules-svg"></object>' +
+                                            '<object type="image/svg+xml" data="images/MG_Men.svg" id="muscules-object" class="svg-object muscules-svg"></object>' +
                                         '</div>' +
                                         '<div class="estimated-time-block">' +
                                             '<span class="estimated-time-label"> Estimated time: </span>' +
@@ -32,12 +32,20 @@ pages.startWorkout = pages.startWorkout || {};
                                     '</div>';
                         },
                         css: 'details-template',
-                        gravity: 10,
                         borderless: true,
                         autoheight: true,
-                        maxWidth: 500
-                    },
-                    {},
+                        onClick:{
+                            "muscules-block":function(ev, id){
+                                var musculesIds = ['nack', 'backArm1', 'backArm2', 'frontArm1', 'frontArm2', 'biceps1', 'biceps2'];
+                                var object = document.getElementById("muscules-object"); //получаем элмент object
+                                var svgDocument = object.contentDocument; //получаем svg элемент внутри object
+                                musculesIds.forEach(function (item) {
+                                    var svgElement = svgDocument.getElementById(item); //получаем любой элемент внутри svg
+                                    svgElement.setAttribute("fill", "red");
+                                });
+                            }
+                        }
+                    }
                 ]
             },
             {},
