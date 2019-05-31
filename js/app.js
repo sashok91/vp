@@ -53,13 +53,24 @@ webix.ready(function () {
                     borderless: true,
                     scroll: false,
                     template: "<span class='webix_icon mdi mdi-#icon#'></span> #value#",
+                    select: false,
                     data: [
                         {id: 1, value: "Scheduled Workout", icon: "cube"},
                         {id: 2, value: "Settings", icon: "cogs"}
                     ],
-                    select: true,
                     type: {
                         height: 60
+                    },
+                    on: {
+                        onItemClick(id) {
+                            switch (id) {
+                                case '1' :
+                                    $$('pages.startWorkout').show();
+                                    break;
+
+                            }
+                            $$('menu').hide();
+                        }
                     }
                 }
             ]
@@ -73,26 +84,20 @@ webix.ready(function () {
     webix.ui({
         css: 'layout',
         rows: [
-            toolbar,
-            {
-                view: 'scrollview',
+            toolbar, {
+                view: 'multiview',
+                id: 'mainMultiview',
                 type: 'clean',
-                css: 'transparent',
-                body: {
-                    view: 'multiview',
-                    id: 'mainMultiview',
-                    type: 'clean',
-                    borderless: true,
-                    css: 'customize-multiview',
-                    fitBiggest: true,
-                    animate: false,
-                    keepViews: true,
-                    cells: [
-                        pages.startWorkout.layout,
-                        pages.customize.layout,
-                        pages.exercises.layout
-                    ]
-                },
+                borderless: true,
+                css: 'customize-multiview',
+                fitBiggest: true,
+                animate: false,
+                keepViews: true,
+                cells: [
+                    pages.startWorkout.layout,
+                    pages.customize.layout,
+                    pages.exercises.layout
+                ]
             },
 
         ]

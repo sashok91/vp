@@ -4,8 +4,7 @@ pages.startWorkout = pages.startWorkout || {};
 
 (function () {
 
-    pages.startWorkout.layout = {
-        id: 'pages.startWorkout',
+    var layout = {
         type: "clean",
         css: 'transparent',
         margin: 20,
@@ -67,17 +66,35 @@ pages.startWorkout = pages.startWorkout || {};
                         view: 'button',
                         css: 'secondary-btn',
                         value: "Customize Workout",
-                        height: 70
+                        height: 70,
+                        on: {
+                            onItemClick() {
+                                $$('pages.customize').show();
+                            }
+                        }
                     },
                     {
                         view: 'button',
                         css: 'accent-btn',
                         value: "Start Workout",
-                        height: 70
+                        height: 70,
+                        on: {
+                            onItemClick() {
+                                $$('pages.exercises').show();
+                            }
+                        }
                     },
                 ]
             }
         ]
+    };
+
+    pages.startWorkout.layout = {
+        view: 'scrollview',
+        id: 'pages.startWorkout',
+        type: 'clean',
+        css: 'transparent',
+        body: layout
     };
 
 }());

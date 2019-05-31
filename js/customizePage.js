@@ -117,7 +117,12 @@ pages.customize = pages.customize || {};
                         css: 'accent-btn',
                         gravity: 3,
                         value: "Start Workout",
-                        height: 70
+                        height: 70,
+                        on: {
+                            onItemClick() {
+                                $$('pages.exercises').show();
+                            }
+                        }
                     }
                 ]
             }
@@ -139,7 +144,6 @@ pages.customize = pages.customize || {};
         type: "clean",
         css: 'transparent',
         rows: [
-            toolbar,
             {
                 view: "tabbar",
                 id: "tabbar",
