@@ -495,8 +495,13 @@ pages.exercises = pages.exercises || {};
                 onClick: {
                     'mdi-delete': function(ev, id) {
                         let item = this.getItem(id);
-                        item.status = 'cancelled';
-                        this.refresh();
+                        if (this.isSelected(id)) {
+                            webix.message('You can\'t cancel selected exercise!');
+                        } else {
+                            item.status = 'cancelled';
+                            this.refresh();
+                        }
+
                     },
                     'mdi-delete-restore': function(ev, id) {
                         let item = this.getItem(id);
