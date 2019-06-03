@@ -475,21 +475,26 @@ pages.exercises = pages.exercises || {};
                 data: data.exercisesPage.eList,
                 on: {
                     onBeforeSelect(id) {
-                        /* currentExercise = data.exercisesPage.eList[id-1];
-                        currentSet = currentExercise.sets[0]; **/
+                        //check if there is exercise in progress
+                        let selectedExercise = this.getSelectedItem();
+                        if (selectedExercise && selectedExercise.status === 'in_progress') {
+                            webix.message('You should finish current exercise before selecting a new one.');
+                            return false;
+                        }
+
                         let currentExercise = this.getItem(id);
 
-                        if (currentExercise.status === 'in_progress') {
-                            webix.message('You should finish current excersice before selecting a new one.');
-                            return false;
-                        } else if (currentExercise.status !== 'todo'){
+                        if (currentExercise.status !== 'todo'){
                             webix.message('You can select only exercises in "todo" status.');
                             return false;
                         }
                     },
                     onAfterSelect(id) {
                         let currentExercise = this.getItem(id);
-                        updateCurrentExerciseAccordionItem(currentExercise);
+                        if (currentExercise) {
+                            updateCurrentExerciseAccordionItem(currentExercise);
+                        }
+
                     }
                 },
                 onClick: {
