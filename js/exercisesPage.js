@@ -127,14 +127,15 @@ pages.exercises = pages.exercises || {};
                             onItemClick() {
                                 let timerView = $$('timer');
 
-                                /*let messageTemplate = $$('message');
-                                messageTemplate.setValues({message: 'Set in progress...'});
-                                messageTemplate.show();*/
+                                let messageTemplate = $$('message');
+                                //messageTemplate.setValues({message: 'Set in progress...'});
+                                messageTemplate.hide();
 
                                 let currentSet = getSetByStatus('in_progress');
                                 if (currentSet) {
                                     startTimer(currentSet.SuggestedExerciseTime, timerView, function () {
                                         timerView.hide();
+                                        let messageTemplate = $$('message');
                                         messageTemplate.setValues({message: 'The set is over! Take a rest!'});
                                         messageTemplate.show();
                                     })
@@ -153,9 +154,9 @@ pages.exercises = pages.exercises || {};
                             onItemClick() {
                                 let timerView = $$('timer');
 
-                                /*let messageTemplate = $$('message');
-                                messageTemplate.setValues({message: 'Rest...'});
-                                messageTemplate.show();*/
+                                let messageTemplate = $$('message');
+                                //messageTemplate.setValues({message: 'Rest...'});
+                                messageTemplate.hide();
 
                                 startTimer(currentSet.SuggestedRestTime, timerView, function () {
                                     timerView.hide();
