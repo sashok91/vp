@@ -2,240 +2,234 @@ var data = data || {};
 data.exercisesPage = data.exercisesPage || {};
 
 (function () {
-  data.exercisesPage.current = 1;
   data.exercisesPage.eList = [
     {
       id: 1,
       name: 'Barbell Deadlift',
-      status: 'completed',
+      status: 'todo',
+      type: 'reps',
       sets: [
         {
           id: '1',
-          order: '1',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'done'// todo, in_progress, done, cancelled
+          OrderNumber: '1',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 80,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '2',
-          order: '2',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '2',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 80,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '3',
-          order: '3',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '3',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 80,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '4',
-          order: '4',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '4',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 80,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
       ]
     },
     {
       id: 2,
       name: 'Bent-Over Barbell Deadlift',
-      status: 'completed',
+      status: 'todo',
+      type: 'reps',
       sets: [
         {
           id: '1',
-          order: '1',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'done'// todo, in_progress, done, cancelled
+          OrderNumber: '1',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '2',
-          order: '2',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '2',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '3',
-          order: '3',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '3',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '4',
-          order: '4',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '4',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
       ]
     },
     {
       id: 3,
       name: 'Wide-Grip Pull-Up',
-      status: 'in_progress',
-      sets: [
-        {
-          id: '1',
-          order: '1',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'done'// todo, in_progress, done, cancelled
-        },
-        {
-          id: '2',
-          order: '2',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
-        },
-        {
-          id: '3',
-          order: '3',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
-        },
-        {
-          id: '4',
-          order: '4',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
-        },
-      ]
-    },
-    {
-      name: 'Standing T-Bar Row',
       status: 'todo',
+      type: 'reps',
       sets: [
         {
           id: '1',
-          order: '1',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'done'// todo, in_progress, done, cancelled
+          OrderNumber: '1',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '2',
-          order: '2',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '2',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '3',
-          order: '3',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '3',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '4',
-          order: '4',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '4',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
       ]
     },
     {
       id: 4,
-      name: 'Reverse-Grip Smith Machine Row',
-      status: 'cancelled',
+      name: 'Standing T-Bar Row',
+      status: 'todo',
+      type: 'reps',
       sets: [
         {
           id: '1',
-          order: '1',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'done'// todo, in_progress, done, cancelled
+          OrderNumber: '1',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '2',
-          order: '2',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '2',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
           id: '3',
-          order: '3',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          OrderNumber: '3',
+          SuggestedRepsMin: '10',
+          SuggestedRepsMax: '12',
+          ActualReps: '',
+          SuggestedWeight: '60',
+          ActualWeight: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
+        },
+
+      ]
+    },
+    {
+      id: 5,
+      name: 'Plank',
+      status: 'todo',
+      type: 'time',
+      sets: [
+        {
+          id: '1',
+          OrderNumber: '1',
+          SuggestedExerciseTime: 70,
+          ActualExerciseTime: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
-          id: '4',
-          order: '4',
-          type: 'reps',// or time
-          reps_plan: '12',
-          reps_fact: '',
-          weight_plan: '60',
-          weight_fact: '',
-          status: 'todo'// todo, in_progress, done, cancelled
+          id: '2',
+          OrderNumber: '2',
+          SuggestedExerciseTime: 60,
+          ActualExerciseTime: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
         },
+        {
+          id: '3',
+          OrderNumber: '3',
+          SuggestedExerciseTime: 50,
+          ActualExerciseTime: '',
+          SuggestedRestTime: 20,
+          status: 'todo'// todo, in_progress, completed, cancelled
+        },
+
       ]
     }
   ];

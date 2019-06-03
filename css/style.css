@@ -158,6 +158,16 @@
 /* startWorkout page*/
 
 /* exercises page*/
+
+.timer-template, .info-template {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+}
+.info-template {
+    color: #039e03c4
+}
+
 .chat-icon .webix_icon_button .webix_icon {
     font-size: 30px;
     height: 30px;
@@ -171,11 +181,50 @@
     width: 30px;
     color: #F18B28;
 }
+.webix_list.exercises-list .webix_list_item {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.exercises-list.webix_list .webix_list_item.webix_selected .block {
+    box-shadow: 0 7px 10px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
 
-.block {
+.exercises-list.webix_list .webix_list_item.webix_selected {
+    box-shadow: none;
+    background: transparent;
+}
+.exercises-list .block {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    padding: 20px 0px;
+    padding: 10px 10px;
     background-color: #EFEFEF;
+    border-radius: 3px;
+}
+
+.exercises-list .muscules-block {
+    font-size: 18px;
+    padding-left: 20px;
+    text-align: left;
+}
+.exercises-list .meta-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.exercises-list .icons-block {
+    font-size: 26px;
+    padding-right: 10px;
+    color: #e6422b;
+}
+
+.exercises-list .state {
+    line-height: 25px;
+    padding: 0px 10px;
     border-radius: 3px;
 }
 
@@ -188,11 +237,12 @@
 }
 
 .block-in_progress {
-    border-left: 4px solid #F18B28;
+    border-left: 4px solid #f18b28ad;
 }
 
 .block-cancelled {
     border-left: 4px solid #ff0000bd;
+    opacity: 0.6;
 }
 
 .state {
@@ -210,38 +260,22 @@
 }
 
 .state-in_progress {
-    background-color: #F18B28;
+    background-color: #f18b28ad;
 }
 
 .state-cancelled {
     background-color: #ff0000bd;
 }
 
-.exercises-list .muscules-block {
-    font-size: 18px;
-    padding-left: 20px;
-    text-align: left;
-}
-
-.state {
-    float: right;
-    line-height: 25px;
-    padding: 0px 10px;
-    margin-right: 20px;
-    border-radius: 3px;
-}
-
-.webix_list.exercises-list .webix_list_item {
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
 .webix_dtable.sets-datatable .webix_dt_editor input, .webix_view .webix_dt_editor select {
     border-color: #F18B28;
     border-radius: 2px;
+}
+.cell-completed {
+    background: #00ff4324;
+}
+.cell-in_progress {
+    background: rgba(241, 139, 40, 0.3);
 }
 
 .webix_cell {
@@ -285,6 +319,11 @@
 .customAccordion {
     background-color: #393939;
     opacity: 0.98;
+}
+
+.customAccordion .webix_accordionitem .webix_accordionitem_header {
+    font-size: 22px;
+    line-height: 60px;
 }
 
 .webix_view.webix_control.webix_el_tabbar.customize-tabbar {
