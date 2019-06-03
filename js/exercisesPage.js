@@ -7,6 +7,9 @@ pages.exercises = pages.exercises || {};
 
     function startTimer(duration, timerView, callback) {
         var timer = duration, minutes, seconds;
+
+        clearInterval(intervalId);
+
         return intervalId = setInterval(function () {
             minutes = parseInt(timer / 60, 10);
             seconds = parseInt(timer % 60, 10);
@@ -27,6 +30,8 @@ pages.exercises = pages.exercises || {};
     }
 
     function cancelTimer() {
+        $$('timer').hide();
+        $$('message').hide();
         clearInterval(intervalId);
     }
 
@@ -41,6 +46,32 @@ pages.exercises = pages.exercises || {};
         $$('exerciseNameTemplate').setValues({name: currentExercise.name});
         $$('exerciseTodoView').show();
         $$('currentExerciseAccordionItem').expand();
+    }
+
+    function getSetByStatus(status) {
+        let setsDatatable = $$('editableSetsDatatable');
+        return setsDatatable.find(function(set){
+            return set.status === status;
+        }, true );
+    }
+
+    function finishExerciseAndGoNext() {
+        let excercisesListView = $$('listExercises');
+
+        let currentExercise = excercisesListView.getSelectedItem();
+        currentExercise.status = 'completed';
+        excercisesListView.refresh();
+
+        let nextExercise = excercisesListView.find(function(exercise){
+            return exercise.status === 'todo';
+        }, true );
+        if (nextExercise) {
+            excercisesListView.select(nextExercise.id);
+        } else {
+            webix.message('There are no more exercises! Your workout is completed!');
+        }
+
+        cancelTimer();
     }
 
     var currentExercise = data.exercisesPage.eList[1];
@@ -72,8 +103,8 @@ pages.exercises = pages.exercises || {};
                 },
                 id: 'message',
                 css: 'info-template',
-                data: {message: 'You are ready to start set!'},
-                hidden: false,
+                data: {message: ''},
+                hidden: true,
                 autoheight: true,
                 borderless: true
             },
@@ -86,21 +117,29 @@ pages.exercises = pages.exercises || {};
                 elements: [
                     {
                         view: "button",
+                        id: 'startTimerButton',
                         css: 'accent-btn',
                         ype: "icon",
                         icon: "mdi mdi-play",
                         label: "Start Set",
+                        hidden: true,
                         on: {
                             onItemClick() {
-                                var timerView = $$('timer');
-                                var messageTemplate = $$('message');
+                                let timerView = $$('timer');
+
+                                /*let messageTemplate = $$('message');
                                 messageTemplate.setValues({message: 'Set in progress...'});
-                                messageTemplate.show();
-                                startTimer(currentSet.SuggestedExcerciseTime, timerView, function () {
-                                    timerView.hide();
-                                    messageTemplate.setValues({message: 'The set is over! Take a rest!'});
-                                    messageTemplate.show();
-                                })
+                                messageTemplate.show();*/
+
+                                let currentSet = getSetByStatus('in_progress');
+                                if (currentSet) {
+                                    startTimer(currentSet.SuggestedExerciseTime, timerView, function () {
+                                        timerView.hide();
+                                        messageTemplate.setValues({message: 'The set is over! Take a rest!'});
+                                        messageTemplate.show();
+                                    })
+                                }
+
                             }
                         }
                     },
@@ -112,13 +151,15 @@ pages.exercises = pages.exercises || {};
                         label: "Rest",
                         on: {
                             onItemClick() {
-                                var timerView = $$('timer');
-                                var messageTemplate = $$('message');
+                                let timerView = $$('timer');
+
+                                /*let messageTemplate = $$('message');
                                 messageTemplate.setValues({message: 'Rest...'});
-                                messageTemplate.show();
+                                messageTemplate.show();*/
+
                                 startTimer(currentSet.SuggestedRestTime, timerView, function () {
                                     timerView.hide();
-                                    var messageTemplate = $$('message');
+                                    let messageTemplate = $$('message');
                                     messageTemplate.setValues({message: 'The rest is over! You are ready to start the next set!'});
                                     messageTemplate.show();
                                 })
@@ -127,18 +168,50 @@ pages.exercises = pages.exercises || {};
                     },
                     {
                         view: "button",
+                        id: 'nextSetButton',
                         css: 'accent-btn',
                         type: "icon",
                         icon: "mdi mdi-arrow-right-bold-outline",
-                        label: "Next Set"
+                        label: "Next Set",
+                        on: {
+                            onItemClick() {
+                                /*let messageTemplate = $$('message');
+                                messageTemplate.setValues({message: 'Are you ready to start a new set?'});
+                                messageTemplate.show();*/
+
+                                let currentSet = getSetByStatus('in_progress');
+                                currentSet.status = 'completed';
+
+                                let setsDatatable = $$('editableSetsDatatable');
+                                setsDatatable.updateItem(currentSet.id, currentSet);
+
+                                cancelTimer();
+
+                                let nextSet = getSetByStatus('todo');
+                                if (nextSet) {
+                                    nextSet.status = 'in_progress';
+                                    setsDatatable.updateItem(nextSet.id, nextSet);
+                                } else {
+                                    this.hide();
+                                    $$('nextExerciseButton').show();
+                                }
+
+                            }
+                        }
                     },
                     {
                         view: "button",
+                        id: 'nextExerciseButton',
                         css: 'accent-btn',
                         type: "icon",
                         hidden: true,
                         icon: "mdi mdi-arrow-right-bold-outline",
-                        label: "Next Exercise"
+                        label: "Next Exercise",
+                        on: {
+                            onItemClick() {
+                                finishExerciseAndGoNext();
+                            }
+                        }
                     }
                 ]
             },
@@ -232,6 +305,13 @@ pages.exercises = pages.exercises || {};
                             this.showColumn('SuggestedWeight');
                             this.showColumn('ActualWeight');
                         }
+                    },
+                    onAfterLoad() {
+                        let firstSet = this.getItem(this.getFirstId());
+                        if (firstSet) {
+                            firstSet.status = 'in_progress';
+                            this.updateItem(firstSet.id, firstSet);
+                        }
                     }
                 }
             },
@@ -249,20 +329,7 @@ pages.exercises = pages.exercises || {};
                         height: 50,
                         on: {
                             onItemClick() {
-                                let excercisesListView = $$('listExercises');
-
-                                let currentExercise = excercisesListView.getSelectedItem();
-                                currentExercise.status = 'completed';
-                                excercisesListView.refresh();
-
-                                let nextExercise = excercisesListView.find(function(exercise){
-                                    return exercise.status === 'todo';
-                                }, true );
-                                if (nextExercise) {
-                                    excercisesListView.select(nextExercise.id);
-                                } else {
-                                    webix.message('There are no more exercises! Your workout is completed!');
-                                }
+                                finishExerciseAndGoNext();
                             }
                         }
                     },
@@ -351,6 +418,14 @@ pages.exercises = pages.exercises || {};
                                     let editableSetsDatatable = $$('editableSetsDatatable');
                                     editableSetsDatatable.clearAll();
                                     editableSetsDatatable.parse(currentExercise.sets);
+
+                                    if (currentExercise.type === 'time') {
+                                        $$('startTimerButton').show();
+                                    }
+
+                                    $$('nextSetButton').show();
+                                    $$('nextExerciseButton').hide();
+
                                     $$('exerciseInProgressView').show();
 
                                 }
