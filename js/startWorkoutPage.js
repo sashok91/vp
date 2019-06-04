@@ -12,22 +12,22 @@ pages.startWorkout = pages.startWorkout || {};
         rows: [
             {
                 paddingX: 50,
-                cols: [
+                rows: [
                     {
                         id: 'template',
                         template: function (obj) {
                             return '<div class="details-block">' +
-                                        '<div class="header"> Today\'s Workout Details</div>' +
                                         '<div class="muscules-block">' +
                                             '<span class="details-value"> Arms, Biceps, Neck </span>' +
-                                        '</div>' +
-                                        '<div class="img-container">' +
-                                            '<object type="image/svg+xml" data="images/MG_Men.svg" id="muscules-object" class="svg-object muscules-svg"></object>' +
                                         '</div>' +
                                         '<div class="estimated-time-block">' +
                                             '<span class="estimated-time-label"> Estimated time: </span>' +
                                             '<span class="estimated-time-value">47 min</span>' +
                                         '</div>' +
+
+                                    '</div>' +
+                                    '<div class="img-container">' +
+                                        '<object type="image/svg+xml" data="images/MG_Men.svg" id="muscules-object" class="svg-object muscules-svg"></object>' +
                                     '</div>';
                         },
                         css: 'details-template',
@@ -44,24 +44,7 @@ pages.startWorkout = pages.startWorkout || {};
                                 });
                             }
                         }
-                    }
-                ]
-            },
-            {},
-            {
-                template: function () {
-                    return '<div>' +
-                        'You can customize today\'s workout before starting' +
-                    '</div>';
-                },
-                css: 'customize-info transparent',
-                borderless: true,
-                autoheight: true
-            },
-            {
-                margin: 20,
-                paddingX: 20,
-                cols: [
+                    },
                     {
                         view: 'button',
                         css: 'secondary-btn',
@@ -73,6 +56,15 @@ pages.startWorkout = pages.startWorkout || {};
                             }
                         }
                     },
+
+                ]
+            },
+            {},
+            {
+                margin: 20,
+                paddingX: 20,
+                cols: [
+
                     {
                         view: 'button',
                         css: 'accent-btn',

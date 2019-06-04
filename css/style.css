@@ -20,6 +20,20 @@
     font-weight: 500;
     padding: 10px;
 }
+
+.page-name-template {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.page-name-template .webix_template{
+    display: flex;
+    align-items: center;
+}
 /* menu */
 
 /* customize page*/
@@ -78,18 +92,35 @@
 
 /* startWorkout page*/
 
+.details-template{
+    background: transparent;
+}
+
 .details-template .webix_template{
+
     padding: 0;
     border-radius: 2px;
+
 }
 .details-block {
-    background-color: #FFF;
+    background-color: #393939;
+    color: white;
     opacity: 0.95
 }
 
 .img-container {
+    position: relative;
     text-align: center;
-    max-height: 50%;
+    opacity: 0.95;
+}
+
+.img-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .details-block muscules-svg {

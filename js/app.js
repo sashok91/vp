@@ -6,6 +6,8 @@ webix.ready(function () {
         type: 'clean',
         css: 'main-toolbar',
         borderless: true,
+        margin: 20,
+        paddingX: 20,
         elements: [
             {
                 view: "icon",
@@ -18,7 +20,16 @@ webix.ready(function () {
                         $$("menu").hide();
                 }
             },
-            {},
+            {
+                id: 'pageName',
+                css: 'page-name-template',
+                template: function(obj) {
+                    return '<span class="page-name">' + obj.pageName + '</span>';
+                },
+                data: { pageName: 'Today\'s workout'},
+                borderless: true,
+                autoheight: true
+            },
             {
                 view: "icon",
                 icon: "mdi mdi-forum",
@@ -26,8 +37,7 @@ webix.ready(function () {
                 click: function () {
                     webix.message('Menu click')
                 }
-            },
-            {width: 20}
+            }
         ]
     };
 
@@ -97,7 +107,19 @@ webix.ready(function () {
                     pages.startWorkout.layout,
                     pages.customize.layout,
                     pages.exercises.layout
-                ]
+                ],
+                on: {
+                    onViewChange(prevId, nextId) {
+                        switch (nextId) {
+                            case 'pages.startWorkout':
+                                $$('pageName').setValues( { pageName: 'Today\'s workout'});
+                                break;
+                            default:
+                                $$('pageName').setValues( { pageName: ''});
+                                break;
+                        }
+                    }
+                }
             },
 
         ]
