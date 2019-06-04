@@ -47,7 +47,7 @@ pages.startWorkout = pages.startWorkout || {};
                     },
                     {
                         view: 'button',
-                        css: 'secondary-btn',
+                        css: 'accent-btn',
                         value: "Customize Workout",
                         height: 70,
                         on: {
