@@ -6,8 +6,7 @@ webix.ready(function () {
         type: 'clean',
         css: 'main-toolbar',
         borderless: true,
-        margin: 20,
-        paddingX: 20,
+        paddingX: 10,
         elements: [
             {
                 view: "icon",
