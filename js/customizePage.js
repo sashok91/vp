@@ -20,28 +20,12 @@ pages.customize = pages.customize || {};
                         view: 'richselect',
                         css: 'vptRichselect',
                         label: 'Goal',
-                        labelPosition: 'top',
                         options: [
                             {id: 1, value: "Strength"},
                             {id: 2, value: "Endurance"},
                             {id: 3, value: "Weight loss"}
                         ],
                         value: "1"
-                    },
-                    {
-                        view: 'multicombo',
-                        css: 'vptMulticombo',
-                        label: 'Traumas',
-                        labelPosition: 'top',
-                        suggest: {
-                            css: 'vptMultilist',
-                            data: [
-                                {id: 1, value: "knee pain"},
-                                {id: 2, value: "shoulder pain"},
-                                {id: 3, value: "hip dislocation"}
-                            ]
-                        },
-                        value: "1,3"
                     },
                     {
                         view: "switch",
@@ -63,6 +47,20 @@ pages.customize = pages.customize || {};
                         labelWidth: 230,
                         value: 0,
                         label: "Interval Training"
+                    },
+                    {
+                        view: 'multicombo',
+                        css: 'vptMulticombo',
+                        label: 'Traumas',
+                        suggest: {
+                            css: 'vptMultilist',
+                            data: [
+                                {id: 1, value: "knee pain"},
+                                {id: 2, value: "shoulder pain"},
+                                {id: 3, value: "hip dislocation"}
+                            ]
+                        },
+                        value: "1,3"
                     },
                     {
                         cols: [
@@ -101,8 +99,8 @@ pages.customize = pages.customize || {};
                             {
                                 id: 'musculesSvg1',
                                 template: function () {
-                                    return '<div class="img-container">' +
-                                        '<object type="image/svg+xml" data="images/MG_Men.svg" class="svg-object muscules-svg"></object>' +
+                                    return '<div class="vptImgContainer">' +
+                                        '<object type="image/svg+xml" data="images/MG_Men.svg"></object>' +
                                         '</div>'
                                 },
                                 borderless: true,
@@ -165,8 +163,8 @@ pages.customize = pages.customize || {};
                     {
                         id: 'musculesSvg',
                         template: function () {
-                            return '<div class="img-container">' +
-                                '<object type="image/svg+xml" data="images/MG_Men.svg" class="svg-object muscules-svg"></object>' +
+                            return '<div class="vptImgContainer">' +
+                                '<object type="image/svg+xml" data="images/MG_Men.svg"></object>' +
                                 '</div>'
                         },
                         borderless: true,
@@ -191,7 +189,7 @@ pages.customize = pages.customize || {};
             },
             {
                 view: 'button',
-                css: 'accent-btn',
+                css: 'vptAccentBtn',
                 gravity: 3,
                 value: "Start Workout",
                 height: 70,
@@ -207,7 +205,7 @@ pages.customize = pages.customize || {};
     pages.customize.layout = {
         id: 'pages.customize',
         type: "clean",
-        css: 'transparent',
+        css: 'vptLayoutTransparent',
         rows: [
             intelligentView
         ]

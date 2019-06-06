@@ -7,7 +7,7 @@ pages.startWorkout = pages.startWorkout || {};
     var layout = {
         id: 'pages.startWorkout',
         type: "line",
-        css: 'transparent',
+        css: 'vptLayoutTransparent',
         margin: 20,
         rows: [
             {
@@ -16,28 +16,28 @@ pages.startWorkout = pages.startWorkout || {};
             {
                 view: 'scrollview',
                 id: 'startPageScrollview',
+                css: 'vptLayoutTransparent',
                 borderless: true,
-                css: 'transparent',
                 body: {
                     paddingX: 50,
                     rows: [
                         {
                             id: 'template',
                             template: function (obj) {
-                                return '<div class="details-block">' +
-                                    '<div class="muscules-block">' +
-                                    '<span class="details-value"> Arms, Biceps, Neck </span>' +
+                                return '<div class="vptDetailsBlock">' +
+                                    '<div class="vptMusculesBlock">' +
+                                    '<span class="vptDetailsValue"> Arms, Biceps, Neck </span>' +
                                     '</div>' +
-                                    '<div class="estimated-time-block">' +
-                                    '<span class="estimated-time-label"> Estimated time: </span>' +
-                                    '<span class="estimated-time-value">47 min</span>' +
+                                    '<div class="vptEstimatedTimeBlock">' +
+                                    '<span class="vptEstimatedTimeLabel"> Estimated time: </span>' +
+                                    '<span class="vptEstimatedTimeValue">47 min</span>' +
                                     '</div>' +
                                     '</div>' +
-                                    '<div class="img-container">' +
-                                    '<object type="image/svg+xml" data="images/MG_Men.svg" id="muscules-object" class="svg-object muscules-svg"></object>' +
+                                    '<div class="vptImgContainer">' +
+                                    '<object type="image/svg+xml" data="images/MG_Men.svg" id="muscules-object"></object>' +
                                     '</div>';
                             },
-                            css: 'details-template',
+                            css: 'vptDetailsTemplate',
                             autoheight: true,
                             on: {
                                 onAfterRender: webix.once(function () {
@@ -55,7 +55,7 @@ pages.startWorkout = pages.startWorkout || {};
                                 })
                             },
                             onClick: {
-                                "details-template": function () {
+                                "vptDetailsTemplate": function () {
                                     $$('pages.customize').show();
                                 }
                             }
@@ -65,7 +65,7 @@ pages.startWorkout = pages.startWorkout || {};
             },
             {
                 view: 'button',
-                css: 'accent-btn',
+                css: 'vptAccentBtn',
                 value: "Start Workout",
                 height: 70,
                 on: {

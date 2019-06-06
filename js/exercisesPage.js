@@ -15,7 +15,7 @@ pages.exercises = pages.exercises || {};
                 view: "list",
                 id: 'listExercises',
                 type: 'space',
-                css: 'vptExercisesList transparent',
+                css: 'vptExercisesList',
                 select: true,
                 item: {
                     height: 'auto',
@@ -68,7 +68,7 @@ pages.exercises = pages.exercises || {};
 
     pages.exercises.layout = {
         type: "clean",
-        css: 'transparent',
+        css: 'vptLayoutTransparent',
         id: 'pages.exercises',
         rows: [
             excercisesListView

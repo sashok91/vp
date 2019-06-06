@@ -1,74 +1,77 @@
-.webix_toolbar {
+.vptTopToolbar.webix_toolbar {
     background-color: #393939;
     opacity: 0.95;
 }
 
-.chat-icon .webix_icon_button .webix_icon {
+.vptChatIcon .webix_icon_button .webix_icon {
     font-size: 30px;
     height: 30px;
     width: 30px;
     color: #F18B28;
 }
 
-.chat-icon .webix_icon_button .webix_icon:hover {
+.vptChatIcon .webix_icon_button .webix_icon:hover {
     font-size: 30px;
     height: 30px;
     width: 30px;
     color: #F18B28;
 }
 
-.accent-btn .webix_button {
+.vptMultiview.webix_view.webix_multiview {
+    background-color: transparent;
+}
+
+.vptAccentBtn .webix_button {
     background: #F18B28;
     color: #ffffff;
     font-size: 22px;
 }
 
-.accent-btn .webix_button:hover,
-.accent-btn .webix_button:focus {
+.vptAccentBtn .webix_button:hover,
+.vptAccentBtn .webix_button:focus {
     background: #ff8004;
     color: #ffffff;
 }
 
-.secondary-btn .webix_button {
+.vptSecondaryBtn .webix_button {
     background: #F4F5F9;
     color: #475466;
     font-size: 22px;
 }
 
-.transparent {
+.vptLayoutTransparent {
     background-color: transparent
 }
 
-.layout {
+.vptLayoutWithImg {
     background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
     background-size: cover;
     background-position: center;
 }
 
-.webix_list.menu-list .webix_list_item {
-    border: none;
-}
-
 /* menu*/
-.webix_list.menu-list .webix_list_item {
+.vptMenuList.webix_list .webix_list_item {
     border: none;
     line-height: 60px;
 }
+.vptMenuList.webix_list .webix_list_item .webix_icon {
+    padding-right: 10px;
+}
 
-.user-info-block {
+.vptUserInfoBlock {
     text-align: center;
 }
 
-.user-icon {
+.vptUserIcon {
     height: 150px;
 }
-.user-name {
+.vptUserName {
     font-size: 18px;
     font-weight: 500;
     padding: 10px;
 }
 
-.page-name-template {
+.vptPageNameTemplate {
     display: flex;
     align-items: center;
     background: transparent;
@@ -77,7 +80,7 @@
     font-weight: 500;
     /*text-transform: uppercase;*/
 }
-.page-name-template .webix_template{
+.vptPageNameTemplate .webix_template{
     display: flex;
     align-items: center;
 }
@@ -85,42 +88,8 @@
 
 /* customize page*/
 
-
-
-/*.webix_view.webix_control.webix_el_tabbar.customize-tabbar {
-    background-color: transparent;
-}
-
-.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected {
-    color: #F18B28;
-}
-
-.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected,
-.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected:focus {
-    background-color: #393939;
-    opacity: 0.9;
-    box-shadow: #F18B28 0px -3px inset;
-    padding-bottom: 0px;
-}
-
-.customize-tabbar .webix_all_tabs .webix_item_tab {
-    background-color: #393939;
-    opacity: 0.9;
-    color: white;
-    font-size: 22px
-}*/
-
 .vptMulticombo .webix_focused .webix_inp_static{
     border: 1px solid #ff8004;
-}
-
-.customize-multiview.webix_view.webix_multiview {
-    background-color: transparent;
-}
-
-.secondary-btn.webix_el_button.webix_control button {
-    background: #F4F5F9;
-    color: #3c3c3c;
 }
 
 .vptRichselect.webix_el_richselect .webix_inp_static:focus{
@@ -149,30 +118,37 @@
 
 /* startWorkout page*/
 
-.details-template{
+.vptDetailsTemplate{
     background: transparent;
 }
 
-.details-template .webix_template{
-
+.vptDetailsTemplate .webix_template {
     border: 2px solid #F18B28;
     padding: 0;
     border-radius: 2px;
 
 }
-.details-block {
+.vptDetailsBlock {
     background-color: #393939;
     color: white;
     opacity: 0.95;
 }
-
-.img-container {
+.vptDetailsBlock .vptHeader {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px 10px;
+    background-color: #393939;
+}
+.vptImgContainer {
     position: relative;
     text-align: center;
     opacity: 0.95;
 }
 
-.img-container:before {
+.vptImgContainer:before {
     content: '';
     position: absolute;
     top: 0;
@@ -187,51 +163,35 @@
     max-height: 50%;
 }*/
 
-.details-block .header {
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 25px;
-    font-weight: 500;
-    text-align: center;
-    padding: 20px 10px;
-    background-color: #393939;
-}
 
-.customize-info {
+
+.vptCustomizeInfo {
     font-size: 20px;
     color: white;
     text-align: center;
 }
 
-.muscules-block {
+.vptMusculesBlock {
     padding: 20px;
     text-align: center;
 }
 
-.muscules-block .details-value {
+.vptMusculesBlock .vptDetailsValue {
     font-size: 27px;
     font-weight: 500;
 }
 
-.estimated-time-block {
+.vptEstimatedTimeBlock {
     padding: 20px 10px;
     text-align: right;
     font-size: 20px;
 }
-
-.transparent {
-    background-color: transparent
-}
-
-.layout {
-    background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
-    background-size: cover;
-    background-position: center;
-}
-
 /* startWorkout page*/
 
 /* exercises page*/
+.vptExercisesList.webix_list {
+    background: transparent;
+}
 
 .vptExercisesList.webix_list .vptStartBtn {
     padding: 0px 30px;
@@ -249,6 +209,7 @@
     font-size: 16px;
     color: #ff8004;
     text-decoration: underline;
+    display: inline-block;
 }
 
 .vptExercisesList.webix_list .vptExerciseInfo {
@@ -331,7 +292,9 @@
     background-color: #ff0000bd;
 }
 
-/* current exercise */
+/* exercises page*/
+
+/* current exercise page */
 
 .timer-template, .info-template {
     text-align: center;
@@ -435,17 +398,14 @@
 }
 */
 
-.customize-multiview.webix_view.webix_multiview {
-    background-color: transparent;
-}
-
-.content-toolbar .accent-btn .webix_button {
+.content-toolbar .vptAccentBtn .webix_button {
     font-size: 17px;
 }
 
-.content-toolbar .accent-btn .webix_button .webix_icon_btn {
+.content-toolbar .vptAccentBtn .webix_button .webix_icon_btn {
     font-size: 22px;
     color: white;
 }
 
-/* exercises page*/
+/* current exercise page */
+

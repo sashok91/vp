@@ -4,14 +4,14 @@ webix.ready(function () {
         id: "toolbar",
         height: 50,
         type: 'clean',
-        css: 'main-toolbar',
+        css: 'vptTopToolbar',
         borderless: true,
         paddingX: 10,
         elements: [
             {
                 view: "icon",
                 icon: "mdi mdi-menu",
-                css: 'menu-icon',
+                css: 'vptMenuIcon',
                 click: function () {
                     if ($$("menu").config.hidden) {
                         $$("menu").show();
@@ -21,9 +21,9 @@ webix.ready(function () {
             },
             {
                 id: 'pageName',
-                css: 'page-name-template',
+                css: 'vptPageNameTemplate',
                 template: function(obj) {
-                    return '<span class="page-name">' + obj.pageName + '</span>';
+                    return '<span class="vptPageName">' + obj.pageName + '</span>';
                 },
                 data: { pageName: 'Today\'s workout'},
                 borderless: true,
@@ -32,7 +32,7 @@ webix.ready(function () {
             {
                 view: "icon",
                 icon: "mdi mdi-forum",
-                css: 'chat-icon',
+                css: 'vptChatIcon',
                 click: function () {
                     webix.message('Menu click')
                 }
@@ -45,20 +45,20 @@ webix.ready(function () {
         id: "menu",
         width: 300,
         position: "left",
-        css: "my_menu",
+        css: "vptSideMenu",
         body: {
             rows: [
                 {
-                    template: '<div class="user-info-block">' +
-                        '<object type="image/svg+xml" data="images/blank-profile-picture-973460.svg" id="object" class="user-icon"></object>' +
-                        '<div class="user-name">Your Name</div>' +
+                    template: '<div class="vptUserInfoBlock">' +
+                        '<object type="image/svg+xml" data="images/blank-profile-picture-973460.svg" id="object" class="vptUserIcon"></object>' +
+                        '<div class="vptUserName">Your Name</div>' +
                         '</div>',
                     borderless: true,
                     autoheight: true
                 },
                 {
                     view: "list",
-                    css: 'menu-list',
+                    css: 'vptMenuList',
                     borderless: true,
                     scroll: false,
                     template: "<span class='webix_icon mdi mdi-#icon#'></span> #value#",
@@ -91,14 +91,14 @@ webix.ready(function () {
 
 
     webix.ui({
-        css: 'layout',
+        css: 'vptLayoutWithImg',
         rows: [
             toolbar, {
                 view: 'multiview',
                 id: 'mainMultiview',
+                css: 'vptMultiview',
                 type: 'clean',
                 borderless: true,
-                css: 'customize-multiview',
                 animate: false,
                 keepViews: true,
                 cells: [
