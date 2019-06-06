@@ -40,7 +40,7 @@
 
 
 
-.webix_view.webix_control.webix_el_tabbar.customize-tabbar {
+/*.webix_view.webix_control.webix_el_tabbar.customize-tabbar {
     background-color: transparent;
 }
 
@@ -61,6 +61,10 @@
     opacity: 0.9;
     color: white;
     font-size: 22px
+}*/
+
+.vptMulticombo .webix_focused .webix_inp_static{
+    border: 1px solid #ff8004;
 }
 
 .customize-multiview.webix_view.webix_multiview {
@@ -72,22 +76,28 @@
     color: #3c3c3c;
 }
 
-.custom-switch .webix_switch_box.webix_switch_on {
+.vptRichselect.webix_el_richselect .webix_inp_static:focus{
+    border: 1px solid #ff8004;
+}
+
+.vptSwitch .webix_switch_box.webix_switch_on {
     background: #ff8004;
 }
 
-.custom-multilist .webix_multilist .wxi-checkbox-marked {
+.vptMultilist .webix_multilist .wxi-checkbox-marked {
     color: #ff8004
 }
 
-.webix_slider_alt .webix_slider_box .webix_slider_left {
+.vptForm .webix_slider_alt .webix_slider_box .webix_slider_left {
     background: #ff8004;
 }
 
-.webix_view.webix_form.opacity-form {
+.vptForm.webix_view.webix_form {
     opacity: 0.96
 }
-
+.vptMulticombo .webix_multicombo_value .webix_multicombo_delete:after{
+    color: #ff8004;
+}
 /* customize page*/
 
 /* startWorkout page*/
@@ -139,21 +149,6 @@
     padding: 20px 10px;
     background-color: #393939;
 }
-
-/*.accent-btn .webix_button{
-    background: #F18B28;
-    color: #ffffff;
-    font-size: 25px;
-    border-radius: 50px;
-}
-.accent-btn .webix_button:hover,
-.accent-btn .webix_button:focus{
-    background: #ff8004;
-    color: #ffffff;
-    font-size: 25px;
-    border-radius: 50px;
-}*/
-
 
 .customize-info {
     font-size: 20px;
@@ -358,7 +353,15 @@
     line-height: 60px;
 }
 
-.webix_view.webix_control.webix_el_tabbar.customize-tabbar {
+.customAccordion .webix_accordionitem.collapsed .webix_accordionitem_header {
+    color: #F18B28;
+}
+
+.customAccordion .webix_accordionitem.collapsed .webix_accordionitem_header .webix_accordionitem_button {
+    color: #F18B28;
+}
+
+/*.webix_view.webix_control.webix_el_tabbar.customize-tabbar {
     background-color: transparent;
 }
 
@@ -380,6 +383,7 @@
     color: white;
     font-size: 22px
 }
+*/
 
 .customize-multiview.webix_view.webix_multiview {
     background-color: transparent;
@@ -426,12 +430,6 @@
     border: none;
 }
 
-.customAccordion .webix_accordionitem.collapsed .webix_accordionitem_header {
-    color: #F18B28;
-}
 
-.customAccordion .webix_accordionitem.collapsed .webix_accordionitem_header .webix_accordionitem_button {
-    color: #F18B28;
-}
 
 /* exercises page*/

@@ -3,23 +3,6 @@ pages.customize = pages.customize || {};
 
 
 (function () {
-    var toolbar = {
-        view: "toolbar",
-        id: "toolbar",
-        height: 50,
-        type: 'clean',
-        css: 'main-toolbar',
-        elements: [
-            {
-                view: "icon",
-                icon: "mdi mdi-menu",
-                css: 'menu-icon',
-                click: function () {
-                    webix.message('Menu click')
-                }
-            }
-        ]
-    };
 
     var intelligentView = {
         id: 'intelligentView',
@@ -28,73 +11,30 @@ pages.customize = pages.customize || {};
         rows: [
             {
                 view: 'form',
-                css: 'opacity-form',
+                css: 'vptForm',
+                scroll: 'y',
                 margin: 15,
+                elementsConfig: {},
                 elements: [
                     {
-                        type: "section",
-                        template: "Muscle Groups Load"
+                        view: 'richselect',
+                        css: 'vptRichselect',
+                        label: 'Goal',
+                        labelPosition: 'top',
+                        options: [
+                            {id: 1, value: "Strength"},
+                            {id: 2, value: "Endurance"},
+                            {id: 3, value: "Weight loss"}
+                        ],
+                        value: "1"
                     },
                     {
-                        view: "slider",
-                        css: 'custom-slider',
-                        type: "alt",
-                        label: "Arms",
-                        value: "100",
-                        title: webix.template(" #value#%"),
-                        step: 50,
-                        min: 50,
-                        max: 200,
-                        name: "s1"
-                    },
-                    {
-                        view: "slider",
-                        css: 'custom-slider',
-                        type: "alt",
-                        label: "Neck",
-                        value: "100",
-                        title: webix.template("#value#%"),
-                        step: 50,
-                        min: 50,
-                        max: 200,
-                        name: "s2"
-                    },
-                    {
-                        type: "section",
-                        template: "Common settings"
-                    },
-                    {
-                        view: "switch",
-                        css: 'custom-switch',
-                        labelWidth: 300,
-                        value: 1,
-                        label: "Auto-Mix Workout Muscle Groups"
-                    },
-                    {
-                        view: "switch",
-                        css: 'custom-switch',
-                        labelWidth: 300,
-                        value: 0,
-                        label: "Linear Periodization"
-                    },
-                    {
-                        view: "switch",
-                        css: 'custom-switch',
-                        labelWidth: 300,
-                        value: 0,
-                        label: "Interval Training"
-                    },
-                    {
-                        type: "section",
-                        template: "I have a traumas"
-                    },
-                    {
-                        view: "multiselect",
-                        id: "multi",
-
-                        label: "Traumas",
+                        view: 'multicombo',
+                        css: 'vptMulticombo',
+                        label: 'Traumas',
+                        labelPosition: 'top',
                         suggest: {
-                            css: 'custom-multilist',
+                            css: 'vptMultilist',
                             data: [
                                 {id: 1, value: "knee pain"},
                                 {id: 2, value: "shoulder pain"},
@@ -103,39 +43,164 @@ pages.customize = pages.customize || {};
                         },
                         value: "1,3"
                     },
+                    {
+                        view: "switch",
+                        css: 'vptSwitch',
+                        labelWidth: 230,
+                        value: 1,
+                        label: "Auto-Mix Workout Muscle Groups"
+                    },
+                    {
+                        view: "switch",
+                        css: 'vptSwitch',
+                        labelWidth: 230,
+                        value: 0,
+                        label: "Linear Periodization"
+                    },
+                    {
+                        view: "switch",
+                        css: 'vptSwitch',
+                        labelWidth: 230,
+                        value: 0,
+                        label: "Interval Training"
+                    },
+                    {
+                        cols: [
+                            {
+                                view: 'multicombo',
+                                css: 'vptMulticombo',
+                                label: 'Muscle Groups Load',
+                                labelPosition: 'top',
+                                suggest: {
+                                    css: 'vptMultilist',
+                                    data: [
+                                        {id: 'nack', value: "Nack"},
+                                        {id: 'back', value: "Back"},
+                                        {id: 'biceps', value: "Biceps"}
+                                    ]
+                                },
+                                value: "nack",
+                                on: {
+                                    onChange: function (newv, oldv) {
+                                        /*let musculesIds = ['nack', 'backArm1', 'backArm2', 'frontArm1', 'frontArm2', 'biceps1', 'biceps2'];
+
+                                        let templateNode = $$('musculesSvg').getNode();
+                                        let objects = templateNode.getElementsByTagName('object');
+
+                                        if (objects.length) {
+                                            let svgDocument = objects[0].contentDocument;
+                                            musculesIds.forEach(function (item) {
+                                                let svgElement = svgDocument.getElementById(item);
+                                                svgElement.setAttribute("fill", "red");
+                                            });
+                                        }*/
+
+                                    }
+                                }
+                            },
+                            {
+                                id: 'musculesSvg1',
+                                template: function () {
+                                    return '<div class="img-container">' +
+                                        '<object type="image/svg+xml" data="images/MG_Men.svg" class="svg-object muscules-svg"></object>' +
+                                        '</div>'
+                                },
+                                borderless: true,
+                                autoheight: true,
+                                on: {
+                                    onAfterRender: webix.once(function () {
+                                        let node = this.getNode();
+                                        let objects = node.getElementsByTagName('object');
+                                        if (objects.length) {
+                                            let template = this;
+                                            objects[0].addEventListener("load", function () {
+                                                template.resize();
+                                            });
+                                        }
+
+                                    })
+                                }
+
+                            },
+                        ]
+
+                    },
+                    /*
+                    {
+                        type: "section",
+                        template: "Muscle Groups Load"
+                    },*/
+                    {
+                        view: 'multicombo',
+                        css: 'vptMulticombo',
+                        label: 'Muscle Groups Load',
+                        labelPosition: 'top',
+                        suggest: {
+                            css: 'vptMultilist',
+                            data: [
+                                {id: 'nack', value: "Nack"},
+                                {id: 'back', value: "Back"},
+                                {id: 'biceps', value: "Biceps"}
+                            ]
+                        },
+                        value: "nack",
+                        on: {
+                            onChange: function (newv, oldv) {
+                                /*let musculesIds = ['nack', 'backArm1', 'backArm2', 'frontArm1', 'frontArm2', 'biceps1', 'biceps2'];
+
+                                let templateNode = $$('musculesSvg').getNode();
+                                let objects = templateNode.getElementsByTagName('object');
+
+                                if (objects.length) {
+                                    let svgDocument = objects[0].contentDocument;
+                                    musculesIds.forEach(function (item) {
+                                        let svgElement = svgDocument.getElementById(item);
+                                        svgElement.setAttribute("fill", "red");
+                                    });
+                                }*/
+
+                            }
+                        }
+                    },
+                    {
+                        id: 'musculesSvg',
+                        template: function () {
+                            return '<div class="img-container">' +
+                                '<object type="image/svg+xml" data="images/MG_Men.svg" class="svg-object muscules-svg"></object>' +
+                                '</div>'
+                        },
+                        borderless: true,
+                        autoheight: true,
+                        on: {
+                            onAfterRender: webix.once(function () {
+                                let node = this.getNode();
+                                let objects = node.getElementsByTagName('object');
+                                if (objects.length) {
+                                    let template = this;
+                                    objects[0].addEventListener("load", function () {
+                                        template.resize();
+                                    });
+                                }
+
+                            })
+                        }
+
+                    },
                     {}
                 ]
             },
-            {},
             {
-                view: 'toolbar',
-                type: 'clean',
-                css: 'main-toolbar',
-                cols: [
-                    {
-                        view: 'button',
-                        css: 'accent-btn',
-                        gravity: 3,
-                        value: "Start Workout",
-                        height: 70,
-                        on: {
-                            onItemClick() {
-                                $$('pages.exercises').show();
-                            }
-                        }
+                view: 'button',
+                css: 'accent-btn',
+                gravity: 3,
+                value: "Start Workout",
+                height: 70,
+                on: {
+                    onItemClick() {
+                        $$('pages.exercises').show();
                     }
-                ]
+                }
             }
-        ]
-    };
-
-    var manualView = {
-        view: 'form',
-        id: 'manualView',
-        elements: [
-            {
-                template: 'manual form',
-            },
         ]
     };
 
@@ -144,28 +209,7 @@ pages.customize = pages.customize || {};
         type: "clean",
         css: 'transparent',
         rows: [
-            {
-                view: "tabbar",
-                id: "tabbar",
-                type: 'clean',
-                css: 'customize-tabbar',
-                multiview: true,
-                height: 60,
-                options: [
-                    {value: "Intelligent Customization", id: "intelligentView"},
-                    {value: "Manual Customization", id: "manualView"}
-                ]
-            },
-            {
-                view: 'multiview',
-                type: 'clean',
-                css: 'customize-multiview',
-                cells: [
-                    intelligentView,
-                    manualView
-                ]
-            },
-
+            intelligentView
         ]
     };
 

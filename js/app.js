@@ -113,6 +113,9 @@ webix.ready(function () {
                             case 'pages.startWorkout':
                                 $$('pageName').setValues( { pageName: 'Today\'s workout'});
                                 break;
+                            case 'pages.customize':
+                                $$('pageName').setValues( { pageName: 'Workout customisation'});
+                                break;
                             default:
                                 $$('pageName').setValues( { pageName: ''});
                                 break;
