@@ -1,7 +1,54 @@
-.webix_toolbar.main-toolbar {
+.webix_toolbar {
     background-color: #393939;
     opacity: 0.95;
 }
+
+.chat-icon .webix_icon_button .webix_icon {
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    color: #F18B28;
+}
+
+.chat-icon .webix_icon_button .webix_icon:hover {
+    font-size: 30px;
+    height: 30px;
+    width: 30px;
+    color: #F18B28;
+}
+
+.accent-btn .webix_button {
+    background: #F18B28;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.accent-btn .webix_button:hover,
+.accent-btn .webix_button:focus {
+    background: #ff8004;
+    color: #ffffff;
+}
+
+.secondary-btn .webix_button {
+    background: #F4F5F9;
+    color: #475466;
+    font-size: 22px;
+}
+
+.transparent {
+    background-color: transparent
+}
+
+.layout {
+    background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-position: center;
+}
+
+.webix_list.menu-list .webix_list_item {
+    border: none;
+}
+
 /* menu*/
 .webix_list.menu-list .webix_list_item {
     border: none;
@@ -186,6 +233,106 @@
 
 /* exercises page*/
 
+.vptExercisesList.webix_list .vptStartBtn {
+    padding: 0px 30px;
+    background: #ff8004;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: 500;
+}
+.vptExercisesList.webix_list .vptExerciseInfo .vptExerciseName{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.vptExercisesList.webix_list .vptExerciseInfo .vptExerciseSets{
+    font-size: 16px;
+    color: #ff8004;
+    text-decoration: underline;
+}
+
+.vptExercisesList.webix_list .vptExerciseInfo {
+    padding-left: 5px;
+    text-align: left;
+}
+.vptExercisesList.webix_list .webix_list_item {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.vptExercisesList.webix_list .webix_list_item.webix_selected .vptBlock {
+    box-shadow: 0 7px 10px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+
+.vptExercisesList.webix_list .webix_list_item.webix_selected {
+    box-shadow: none;
+    background: transparent;
+}
+.vptExercisesList.webix_list .vptBlock {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #EFEFEF;
+    border-radius: 3px;
+}
+
+.vptExercisesList.webix_list .vptMetaInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.vptExercisesList.webix_list .vptState {
+    line-height: 25px;
+    padding: 0px 10px;
+    border-radius: 3px;
+}
+
+.vptBlockCompleted {
+    border-left: 4px solid #039e037d;
+}
+
+.vptBlockTodo {
+    border-left: 4px solid #80808047;
+}
+
+.vptBlockInProgress {
+    border-left: 4px solid #f18b28ad;
+}
+
+.vptBlockCancelled {
+    border-left: 4px solid #ff0000bd;
+    opacity: 0.6;
+}
+
+.vptState {
+    width: 70px;
+    text-align: center;
+    color: #313131;
+}
+
+.vptStateCompleted {
+    background-color: #039e037d;
+}
+
+.vptStateTodo {
+    background-color: #80808047;
+}
+
+.vptStateInProgress {
+    background-color: #f18b28ad;
+}
+
+.vptStateCancelled {
+    background-color: #ff0000bd;
+}
+
+/* current exercise */
+
 .timer-template, .info-template {
     text-align: center;
     font-size: 26px;
@@ -195,104 +342,7 @@
     color: #039e03c4
 }
 
-.chat-icon .webix_icon_button .webix_icon {
-    font-size: 30px;
-    height: 30px;
-    width: 30px;
-    color: #F18B28;
-}
 
-.chat-icon .webix_icon_button .webix_icon:hover {
-    font-size: 30px;
-    height: 30px;
-    width: 30px;
-    color: #F18B28;
-}
-.webix_list.exercises-list .webix_list_item {
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-}
-.exercises-list.webix_list .webix_list_item.webix_selected .block {
-    box-shadow: 0 7px 10px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
-}
-
-.exercises-list.webix_list .webix_list_item.webix_selected {
-    box-shadow: none;
-    background: transparent;
-}
-.exercises-list .block {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px 10px;
-    background-color: #EFEFEF;
-    border-radius: 3px;
-}
-
-.exercises-list .muscules-block {
-    font-size: 18px;
-    padding-left: 20px;
-    text-align: left;
-}
-.exercises-list .meta-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.exercises-list .icons-block {
-    font-size: 26px;
-    padding-right: 10px;
-    color: #e6422b;
-}
-
-.exercises-list .state {
-    line-height: 25px;
-    padding: 0px 10px;
-    border-radius: 3px;
-}
-
-.block-completed {
-    border-left: 4px solid #039e037d;
-}
-
-.block-todo {
-    border-left: 4px solid #80808047;
-}
-
-.block-in_progress {
-    border-left: 4px solid #f18b28ad;
-}
-
-.block-cancelled {
-    border-left: 4px solid #ff0000bd;
-    opacity: 0.6;
-}
-
-.state {
-    width: 70px;
-    text-align: center;
-    color: #313131;
-}
-
-.state-completed {
-    background-color: #039e037d;
-}
-
-.state-todo {
-    background-color: #80808047;
-}
-
-.state-in_progress {
-    background-color: #f18b28ad;
-}
-
-.state-cancelled {
-    background-color: #ff0000bd;
-}
 
 .webix_dtable.sets-datatable .webix_dt_editor input, .webix_view .webix_dt_editor select {
     border-color: #F18B28;
@@ -397,39 +447,5 @@
     font-size: 22px;
     color: white;
 }
-
-.accent-btn .webix_button {
-    background: #F18B28;
-    color: #ffffff;
-    font-size: 22px;
-}
-
-.accent-btn .webix_button:hover,
-.accent-btn .webix_button:focus {
-    background: #ff8004;
-    color: #ffffff;
-}
-
-.secondary-btn .webix_button {
-    background: #F4F5F9;
-    color: #475466;
-    font-size: 22px;
-}
-
-.transparent {
-    background-color: transparent
-}
-
-.layout {
-    background-image: url(https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
-    background-size: cover;
-    background-position: center;
-}
-
-.webix_list.menu-list .webix_list_item {
-    border: none;
-}
-
-
 
 /* exercises page*/

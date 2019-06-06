@@ -104,7 +104,8 @@ webix.ready(function () {
                 cells: [
                     pages.startWorkout.layout,
                     pages.customize.layout,
-                    pages.exercises.layout
+                    pages.exercises.layout,
+                    pages.currentExercise.layout
                 ],
                 on: {
                     onViewChange(prevId, nextId) {
@@ -114,6 +115,12 @@ webix.ready(function () {
                                 break;
                             case 'pages.customize':
                                 $$('pageName').setValues( { pageName: 'Workout customisation'});
+                                break;
+                            case 'pages.exercises':
+                                $$('pageName').setValues( { pageName: 'Workout exercises'});
+                                break;
+                            case 'pages.currentExercise':
+                                $$('pageName').setValues( { pageName: 'Current Exercise'});
                                 break;
                             default:
                                 $$('pageName').setValues( { pageName: ''});

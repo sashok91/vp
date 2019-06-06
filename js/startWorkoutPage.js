@@ -67,17 +67,9 @@ pages.startWorkout = pages.startWorkout || {};
                 view: 'button',
                 css: 'accent-btn',
                 value: "Start Workout",
-
                 height: 70,
                 on: {
                     onItemClick() {
-                        let listExercises = $$('listExercises');
-                        listExercises.parse(data.exercisesPage.eList);
-                        let firstExerciseId = listExercises.getFirstId();
-                        let firstExercise = listExercises.getItem(firstExerciseId);
-                        listExercises.select(firstExerciseId);
-                        $$('previewSetsDatatable').parse(firstExercise.sets);
-                        $$('exerciseNameTemplate').setValues({name: firstExercise.name});
                         $$('pages.exercises').show();
                     }
                 }

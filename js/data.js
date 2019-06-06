@@ -6,7 +6,7 @@ data.exercisesPage = data.exercisesPage || {};
     {
       id: 1,
       name: 'Barbell Deadlift',
-      status: 'todo',
+      status: 'completed',
       type: 'reps',
       sets: [
         {
@@ -58,7 +58,7 @@ data.exercisesPage = data.exercisesPage || {};
     {
       id: 2,
       name: 'Bent-Over Barbell Deadlift',
-      status: 'todo',
+      status: 'completed',
       type: 'reps',
       sets: [
         {
@@ -110,7 +110,7 @@ data.exercisesPage = data.exercisesPage || {};
     {
       id: 3,
       name: 'Wide-Grip Pull-Up',
-      status: 'todo',
+      status: 'in_progress',
       type: 'reps',
       sets: [
         {
