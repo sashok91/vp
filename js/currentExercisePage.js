@@ -361,14 +361,22 @@ pages.currentExercise = pages.currentExercise || {};
         ]
     };
 
+    {}
+
     pages.currentExercise.layout = {
+        view: 'scrollview',
         id: 'pages.currentExercise',
-        type: 'line',
-        css: 'vptCurrentExerciseView',
-        padding: 5,
-        rows: [
-            exerciseInProgressView
-        ]
+        css: 'vptLayoutTransparent',
+        body: {
+            type: 'line',
+            css: 'vptCurrentExerciseView',
+            padding: 5,
+            rows: [
+                exerciseInProgressView
+            ]
+        }
+
+
     };
 
 
