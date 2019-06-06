@@ -296,113 +296,88 @@
 
 /* current exercise page */
 
-.timer-template, .info-template {
+.vptTimerTemplate .vptEstimatedTime {
+    font-size: 16px;
+    text-align: right;
+    padding-bottom: 15px;
+}
+
+.vptTimerTemplate .vptTime {
+    text-align: left;
+    /* padding-left: 30px; */
+}
+
+.vptExerciseInprogressLayout{
+    background: white;
+    opacity: 0.95;
+}
+
+.vptTimerTemplate, .vptInfoTemplate {
     text-align: center;
     font-size: 26px;
     font-weight: 500;
 }
-.info-template {
+.vptInfoTemplate {
     color: #039e03c4
+}
+.vptDatatable.webix_dtable {
+    background: #eff0f452;
 }
 
 
+.vptDatatable .vptMultiline {
+    line-height: 20px !important;
+}
 
-.webix_dtable.sets-datatable .webix_dt_editor input, .webix_view .webix_dt_editor select {
+.vptDatatable.webix_dtable .webix_dt_editor input, .webix_view.vptDatatable.webix_dtable .webix_dt_editor select {
     border-color: #F18B28;
     border-radius: 2px;
 }
-.cell-completed {
+.vptDatatable .vptCellCompleted {
     background: #00ff4324;
 }
-.cell-in_progress {
+.vptDatatable .vptCellInProgress {
     background: rgba(241, 139, 40, 0.3);
 }
 
-.sets-datatable .webix_cell {
+.vptDatatable .webix_cell {
     text-align: center;
 }
 
-.editable-cell .webix_cell {
+.vptDatatable .vptEditableCell .webix_cell {
     background: white;
     border: 1px solid grey;
     border-radius: 2px;
 }
 
-.webix_dtable .webix_ss_body .webix_column.editable-cell > div {
+.vptDatatable.webix_dtable .webix_ss_body .webix_column.vptEditableCell > div {
     border: 1px solid #80808036;
 }
 
-.webix_dtable.sets-datatable .webix_ss_header td.webix_last_row {
+.vptDatatable.webix_dtable .webix_ss_header td.webix_last_row {
     border-bottom: 1px solid #F18B28;
 }
 
-.webix_dtable.sets-datatable {
-    background: #eff0f452;
-}
 
-.info-icon .webix_icon_button .webix_icon {
+.vptInfoIcon .webix_icon_button .webix_icon {
     font-size: 30px;
     height: 30px;
     width: 30px;
     color: #F18B28;
 }
 
-.exercise-name {
+.vptExerciseName {
     font-size: 22px;
     font-weight: 500;
 }
-
-.multiline {
-    line-height: 20px !important;
+.vptContentToolbar {
+    background: transparent;
 }
-
-.customAccordion {
-    background-color: #393939;
-    opacity: 0.98;
-}
-
-.customAccordion .webix_accordionitem .webix_accordionitem_header {
-    font-size: 22px;
-    line-height: 60px;
-}
-
-.customAccordion .webix_accordionitem.collapsed .webix_accordionitem_header {
-    color: #F18B28;
-}
-
-.customAccordion .webix_accordionitem.collapsed .webix_accordionitem_header .webix_accordionitem_button {
-    color: #F18B28;
-}
-
-/*.webix_view.webix_control.webix_el_tabbar.customize-tabbar {
-    background-color: transparent;
-}
-
-.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected {
-    color: #F18B28;
-}
-
-.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected,
-.customize-tabbar .webix_all_tabs .webix_item_tab.webix_selected:focus {
-    background-color: #393939;
-    opacity: 0.9;
-    box-shadow: #F18B28 0px -3px inset;
-    padding-bottom: 0px;
-}
-
-.customize-tabbar .webix_all_tabs .webix_item_tab {
-    background-color: #393939;
-    opacity: 0.9;
-    color: white;
-    font-size: 22px
-}
-*/
-
-.content-toolbar .vptAccentBtn .webix_button {
+.vptContentToolbar .vptAccentBtn .webix_button {
     font-size: 17px;
 }
 
-.content-toolbar .vptAccentBtn .webix_button .webix_icon_btn {
+.vptContentToolbar .vptAccentBtn .webix_button .webix_icon_btn {
     font-size: 22px;
     color: white;
 }

@@ -4,10 +4,10 @@ pages.customize = pages.customize || {};
 
 (function () {
 
-    var intelligentView = {
-        id: 'intelligentView',
+    pages.customize.layout = {
+        id: 'pages.customize',
         type: 'clean',
-        css: 'intelligent-view',
+        css: 'vptLayoutTransparent',
         rows: [
             {
                 view: 'form',
@@ -202,13 +202,5 @@ pages.customize = pages.customize || {};
         ]
     };
 
-    pages.customize.layout = {
-        id: 'pages.customize',
-        type: "clean",
-        css: 'vptLayoutTransparent',
-        rows: [
-            intelligentView
-        ]
-    };
 
 }());

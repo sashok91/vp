@@ -35,79 +35,55 @@ pages.currentExercise = pages.currentExercise || {};
         clearInterval(intervalId);
     }
 
-/*    // update after changing exercise
-    function updateCurrentExerciseAccordionItem(currentExercise) {
-        if (!currentExercise) {
-            return;
-        }
-        let previewDatatable = $$('previewSetsDatatable');
-        previewDatatable.clearAll();
-        previewDatatable.parse(currentExercise.sets);
-        $$('exerciseNameTemplate').setValues({name: currentExercise.name});
-        $$('exerciseTodoView').show();
-        $$('currentExerciseAccordionItem').expand();
-    }*/
-
-    function getSetByStatus(status) {
-        let setsDatatable = $$('editableSetsDatatable');
-        return setsDatatable.find(function(set){
-            return set.status === status;
-        }, true );
-    }
-
-    function finishExerciseAndGoNext() {
-        let excercisesListView = $$('listExercises');
-
-        let currentExercise = excercisesListView.getSelectedItem();
-        currentExercise.status = 'completed';
-        excercisesListView.refresh();
-
-        let nextExercise = excercisesListView.find(function(exercise){
-            return exercise.status === 'todo';
-        }, true );
-        if (nextExercise) {
-            excercisesListView.select(nextExercise.id);
-        } else {
-            webix.message('There are no more exercises! Your workout is completed!');
-        }
-
-        cancelTimer();
-    }
+    var currentExercise = data.exercisesPage.eList[3];
 
     var exerciseInProgressView = {
         id: 'exerciseInProgressView',
-        type: 'line',
+        css: 'vptExerciseInprogressLayout',
         margin: 25,
+        padding: 10,
         rows: [
             {
-                template: function (obj) {
-                    return '<div class="timer-container">' +
-                        '<span>' + obj.time + '</span>' +
-                        '</div>';
-                },
-                id: 'timer',
-                css: 'timer-template',
-                data: {time: ''},
-                height: 40,
-                hidden: true,
-                borderless: true
+                type: 'clean',
+                cols: [
+                    {
+                        id: "exerciseNameTemplate",
+                        template: function (exercise) {
+                            return '<div class="vptExerciseName">' + exercise.name + '</div>';
+                        },
+                        data: {name: currentExercise.name},
+                        borderless: true,
+                        autoheight: true
+                    },
+                    {
+                        //view: "button",
+                        view: 'icon',
+                        icon: "mdi mdi-information",
+                        css: 'vptInfoIcon',
+                        height: 40,
+                        width: 40,
+                        click: function () {
+                            webix.message('Modal window with information about exercise')
+                        }
+                    }
+                ]
             },
             {
                 template: function (obj) {
-                    return '<div>' +
-                        '<span>' + obj.message + '</span>' +
+                    return '<div class="vptTimerContainer">' +
+                        '<div class="vptEstimatedTime">Estimated time for set: ' + obj.estimatedTime + '</div>' +
+                        '<div class="vptTime">'+obj.time+'</div>' +
                         '</div>';
                 },
-                id: 'message',
-                css: 'info-template',
-                data: {message: ''},
-                hidden: true,
+                id: 'timer',
+                css: 'vptTimerTemplate',
+                data: {time: '00:00', estimatedTime: '01:40' },
                 autoheight: true,
                 borderless: true
             },
             {
                 view: "toolbar",
-                css: 'content-toolbar',
+                css: 'vptContentToolbar',
                 margin: 20,
                 height: 50,
                 borderless: true,
@@ -115,11 +91,10 @@ pages.currentExercise = pages.currentExercise || {};
                     {
                         view: "button",
                         id: 'startTimerButton',
-                        css: 'accent-btn',
-                        ype: "icon",
+                        css: 'vptAccentBtn',
+                        type: "icon",
                         icon: "mdi mdi-play",
                         label: "Start Set",
-                        hidden: true,
                         on: {
                             onItemClick() {
                                 let timerView = $$('timer');
@@ -143,7 +118,7 @@ pages.currentExercise = pages.currentExercise || {};
                     },
                     {
                         view: "button",
-                        css: 'accent-btn',
+                        css: 'vptAccentBtn',
                         type: "icon",
                         icon: "mdi mdi-stop",
                         label: "Rest",
@@ -167,7 +142,7 @@ pages.currentExercise = pages.currentExercise || {};
                     {
                         view: "button",
                         id: 'nextSetButton',
-                        css: 'accent-btn',
+                        css: 'vptAccentBtn',
                         type: "icon",
                         icon: "mdi mdi-arrow-right-bold-outline",
                         label: "Next Set",
@@ -200,14 +175,14 @@ pages.currentExercise = pages.currentExercise || {};
                     {
                         view: "button",
                         id: 'nextExerciseButton',
-                        css: 'accent-btn',
+                        css: 'vptAccentBtn',
                         type: "icon",
                         hidden: true,
                         icon: "mdi mdi-arrow-right-bold-outline",
                         label: "Next Exercise",
                         on: {
                             onItemClick() {
-                                finishExerciseAndGoNext();
+                                //finishExerciseAndGoNext();
                             }
                         }
                     }
@@ -216,7 +191,7 @@ pages.currentExercise = pages.currentExercise || {};
             {
                 view: "datatable",
                 id: 'editableSetsDatatable',
-                css: 'sets-datatable',
+                css: 'vptDatatable',
                 editable: true,
                 autoheight: true,
                 scheme: {
@@ -224,32 +199,32 @@ pages.currentExercise = pages.currentExercise || {};
                         let cellClass;
                         switch (item.status) {
                             case 'completed':
-                                cellClass = 'cell-completed';
+                                cellClass = 'vptCellCompleted';
                                 break;
                             case 'in_progress':
-                                cellClass = 'cell-in_progress';
+                                cellClass = 'vptCellInProgress';
                                 break;
                         }
                         item.$css = cellClass;
                     }
                 },
                 columns: [
-                    {id: "OrderNumber", header: {text: "Set", height: 40, css: "multiline"}, width: 40},
+                    {id: "OrderNumber", header: {text: "Set", height: 40, css: "vptMultiline"}, width: 40},
                     {
                         id: "SuggestedExerciseTime",
-                        header: {text: "Exercise Time Plan", height: 40, css: "multiline"},
+                        header: {text: "Exercise Time Plan", height: 40, css: "vptMultiline"},
                         fillspace: true
                     },
                     {
                         id: "ActualExerciseTime",
-                        css: "editable-cell",
+                        css: "vptEditableCell",
                         editor: "text",
-                        header: {text: "Exercise Time Fact", height: 450, css: "multiline"},
+                        header: {text: "Exercise Time Fact", height: 450, css: "vptMultiline"},
                         fillspace: true
                     },
                     {
                         id: "SuggestedReps",
-                        header: {text: "Reps Plan", height: 40, css: "multiline"},
+                        header: {text: "Reps Plan", height: 40, css: "vptMultiline"},
                         fillspace: true,
                         template: function (item) {
                             if (typeof item.SuggestedRepsMin !== 'undefined' && typeof item.SuggestedRepsMax !== 'undefined') {
@@ -266,28 +241,27 @@ pages.currentExercise = pages.currentExercise || {};
                     {
                         id: "ActualReps",
                         editor: "text",
-                        css: "editable-cell",
-                        header: {text: "Reps Fact", height: 40, css: "multiline"},
+                        css: "vptEditableCell",
+                        header: {text: "Reps Fact", height: 40, css: "vptMultiline"},
                         fillspace: true
                     },
                     {
                         id: "SuggestedWeight",
-                        header: {text: "Weight Plan", height: 40, css: "multiline"},
+                        header: {text: "Weight Plan", height: 40, css: "vptMultiline"},
                         fillspace: true
                     },
                     {
                         id: "ActualWeight",
-                        css: "editable-cell",
+                        css: "vptEditableCell",
                         editor: "text",
-                        header: {text: "Weight Fact", height: 450, css: "multiline"},
+                        header: {text: "Weight Fact", height: 450, css: "vptMultiline"},
                         fillspace: true
                     },
-                    {id: "status", header: {text: "Status", height: 40, css: "multiline"}, width: 60}
+                    {id: "SuggestedRestTime", header: {text: "Rest", height: 40, css: "vptMultiline"}, width: 60}
                 ],
+                data: currentExercise.sets,
                 on: {
-                    onBeforeLoad() {
-                        let exercisesList = $$('listExercises');
-                        let currentExercise = exercisesList.getSelectedItem();
+                    onViewShow() {
                         if (currentExercise && currentExercise.type === 'time') {
                             this.showColumn('SuggestedExerciseTime');
                             this.showColumn('ActualExerciseTime');
@@ -295,7 +269,7 @@ pages.currentExercise = pages.currentExercise || {};
                             this.hideColumn('ActualReps');
                             this.hideColumn('SuggestedWeight');
                             this.hideColumn('ActualWeight');
-                        } else if (currentExercise && currentExercise.type === 'reps'){
+                        } else if (currentExercise && currentExercise.type === 'reps') {
                             this.hideColumn('SuggestedExerciseTime');
                             this.hideColumn('ActualExerciseTime');
                             this.showColumn('SuggestedReps');
@@ -304,6 +278,24 @@ pages.currentExercise = pages.currentExercise || {};
                             this.showColumn('ActualWeight');
                         }
                     },
+                    /*onBeforeLoad() {
+                        debugger;
+                        if (currentExercise && currentExercise.type === 'time') {
+                            this.showColumn('SuggestedExerciseTime');
+                            this.showColumn('ActualExerciseTime');
+                            this.hideColumn('SuggestedReps');
+                            this.hideColumn('ActualReps');
+                            this.hideColumn('SuggestedWeight');
+                            this.hideColumn('ActualWeight');
+                        } else if (currentExercise && currentExercise.type === 'reps') {
+                            this.hideColumn('SuggestedExerciseTime');
+                            this.hideColumn('ActualExerciseTime');
+                            this.showColumn('SuggestedReps');
+                            this.showColumn('ActualReps');
+                            this.showColumn('SuggestedWeight');
+                            this.showColumn('ActualWeight');
+                        }
+                    },*/
                     onAfterLoad() {
                         let firstSet = this.getItem(this.getFirstId());
                         if (firstSet) {
@@ -313,21 +305,54 @@ pages.currentExercise = pages.currentExercise || {};
                     }
                 }
             },
+            {
+                view: 'form',
+                css: 'vptForm',
+                borderless: true,
+                margin: 20,
+                elementsConfig: {
+                    labelWidth: 150
+                },
+                elements: [
+                    {
+                        view: "slider",
+                        css: 'vptSlider',
+                        type: "alt",
+                        value: "100",
+                        label: 'Exercise Load',
+                        title: webix.template(" #value#%"),
+                        step: 50,
+                        min: 50,
+                        max: 200,
+                        name: "s1"
+                    },
+                    {
+                        view: 'richselect',
+                        css: 'vptRichselect',
+                        label: 'Exercise Focus',
+                        options: [
+                            {id: 1, value: "Strength"},
+                            {id: 2, value: "Endurance"},
+                            {id: 3, value: "Weight loss"}
+                        ],
+                        value: "1"
+                    },
+                ]
+            },
             {},
             {
                 view: 'toolbar',
-                css: 'content-toolbar',
+                css: 'vptContentToolbar',
                 borderless: true,
                 cols: [
                     {},
                     {
                         view: 'button',
-                        css: 'accent-btn',
+                        css: 'vptAccentBtn',
                         value: "Finish exercise",
                         height: 50,
                         on: {
                             onItemClick() {
-                                finishExerciseAndGoNext();
                             }
                         }
                     },
@@ -336,51 +361,15 @@ pages.currentExercise = pages.currentExercise || {};
         ]
     };
 
-    var currentExerciseView = {
-        id: 'currentExerciseView',
+    pages.currentExercise.layout = {
+        id: 'pages.currentExercise',
         type: 'line',
-        css: 'current-exercise-view',
-        padding: 15,
-        margin: 25,
+        css: 'vptCurrentExerciseView',
+        padding: 5,
         rows: [
-            {
-                cols: [
-                    {
-                        id: "exerciseNameTemplate",
-                        template: function (exercise) {
-                            return '<div class="exercise-name-block">' +
-                                '<div class="exercise-name">' + exercise.name + '</div>' +
-                                '</div>';
-                        },
-                        data: {name: ''},
-                        borderless: true,
-                        autoheight: true
-                    },
-                    {
-                        //view: "button",
-                        view: 'icon',
-                        icon: "mdi mdi-information",
-                        css: 'info-icon',
-                        height: 40,
-                        width: 40,
-                        click: function () {
-                            webix.message('Modal window with information about exercise')
-                        }
-                    }
-                ]
-            },
             exerciseInProgressView
         ]
     };
 
-
-    pages.currentExercise.layout = {
-        type: "clean",
-        css: 'transparent',
-        id: 'pages.currentExercise',
-        rows: [
-             currentExerciseView
-        ]
-    };
 
 }());

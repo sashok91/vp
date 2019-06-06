@@ -60,6 +60,11 @@ pages.exercises = pages.exercises || {};
                 onClick: {
                     'vptExerciseSets': function() {
                         webix.alert('popup with info and customisation');
+                    },
+                    'vptStartBtn': function(e, id) {
+                        let item = this.getItem(id);
+
+                        $$('pages.currentExercise').show();
                     }
                 }
             }

@@ -172,6 +172,7 @@ data.exercisesPage = data.exercisesPage || {};
           ActualReps: '',
           SuggestedWeight: '60',
           ActualWeight: '',
+          SuggestedRestTime: 20,
           status: 'todo'// todo, in_progress, completed, cancelled
         },
         {
