@@ -26,9 +26,9 @@
     align-items: center;
     background: transparent;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 .page-name-template .webix_template{
     display: flex;
@@ -98,6 +98,7 @@
 
 .details-template .webix_template{
 
+    border: 2px solid #F18B28;
     padding: 0;
     border-radius: 2px;
 
@@ -105,7 +106,7 @@
 .details-block {
     background-color: #393939;
     color: white;
-    opacity: 0.95
+    opacity: 0.95;
 }
 
 .img-container {
@@ -123,11 +124,11 @@
     bottom: 0;
 }
 
-.details-block muscules-svg {
+/*.details-block .muscules-svg {
     max-width: 50%;
     height: auto;
     max-height: 50%;
-}
+}*/
 
 .details-block .header {
     text-transform: uppercase;
@@ -309,7 +310,7 @@
     background: rgba(241, 139, 40, 0.3);
 }
 
-.webix_cell {
+.sets-datatable .webix_cell {
     text-align: center;
 }
 
