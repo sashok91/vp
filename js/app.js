@@ -89,7 +89,7 @@ webix.ready(function () {
     };
 
     webix.debug = true;
-    webix.ui.fullScreen();
+
 
     webix.ui({
         css: 'layout',
@@ -100,7 +100,6 @@ webix.ready(function () {
                 type: 'clean',
                 borderless: true,
                 css: 'customize-multiview',
-                fitBiggest: true,
                 animate: false,
                 keepViews: true,
                 cells: [
@@ -126,3 +125,4 @@ webix.ready(function () {
     });
     webix.ui(sidemenu);
 });
+webix.ui.fullScreen();
